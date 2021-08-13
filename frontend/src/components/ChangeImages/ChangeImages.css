@@ -1,0 +1,48 @@
+.change__image__page{
+    z-index: 5;
+    background-color: rgb(203, 203, 203);
+    display: grid;
+    grid-template:  100px / repeat(100, 150px) 45px;
+    column-gap: 10px;
+    overflow: auto;
+    position: fixed;
+    width: 40vw;
+    padding-top: 40px;
+    padding-left: 40px;
+    padding-bottom: 40px;
+
+    /* padding-right: 10px; */
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -20vw;
+    border-radius: 8px;
+}
+
+.image__delete{
+    color: white;
+}
+.image__close{
+    color: cornflowerblue;
+    position: absolute;
+    margin-left: 5px;
+    margin-top: 5px;
+    font-size: 25px;
+
+}
+.image__close:hover{
+    color: rgb(49, 94, 178);
+
+}
+
+.image__add{
+    color: rgb(76, 76, 76);
+    justify-self: start;
+    align-self: center;
+    font-size: 35px;
+    padding-left: 30px;
+}
+
+.image__add:hover{
+    color: white;
+}

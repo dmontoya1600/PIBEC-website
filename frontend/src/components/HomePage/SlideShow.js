@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import ChangeImages from '../ChangeImages';
 import './HomePage.css'
 
 function SlideShow() {
@@ -58,7 +59,7 @@ function SlideShow() {
 
   return (
     <div className={`slideshow__component ${authSlide}`}>
-      {changeSlide ? <div className='TEST'></div> : null}
+      {changeSlide ? <ChangeImages setChangeSlide={setChangeSlide} imageArr={imageArr} />: null}
         {authSlide === 'authslide' ? <div className='slideshow__overlay' onClick={() => handleSlideClick()}/> : null }
         <i className='fas fa-arrow-left slide__arrow left__arrow' onClick={() => handleLeftClick()}/>
         <i className='fas fa-arrow-right slide__arrow right__arrow' onClick={() => handleRightClick()}/>
