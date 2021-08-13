@@ -9,15 +9,7 @@ router.use('/session', sessionRouter);
 
 router.use('/users', usersRouter);
 
-router.get('/set-token-cookie', asyncHandler(async (req, res) => {
-  const user = await User.findOne({
-      where: {
-        username: 'Demo-lition'
-      },
-    })
-  setTokenCookie(res, user);
-  return res.json({ user });
-}));
+
 
 // GET /api/restore-user
 const { restoreUser } = require('../../utils/auth.js');
@@ -31,6 +23,7 @@ router.get(
 
 // GET /api/require-auth
 const { requireAuth } = require('../../utils/auth.js');
+const { route } = require('./session.js');
 router.get(
   '/require-auth',
   requireAuth,
