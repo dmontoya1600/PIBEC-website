@@ -1,6 +1,6 @@
 .change__image__page{
     z-index: 5;
-    background-color: rgb(203, 203, 203);
+    background-color: rgba(203, 203, 203, 0.759);
     display: grid;
     grid-template:  100px / repeat(100, 150px) 45px;
     column-gap: 10px;
@@ -23,7 +23,7 @@
     color: white;
 }
 .image__close{
-    color: cornflowerblue;
+    color: rgb(99, 153, 255);
     position: absolute;
     margin-left: 5px;
     margin-top: 5px;
@@ -31,7 +31,7 @@
 
 }
 .image__close:hover{
-    color: rgb(49, 94, 178);
+    color: rgb(62, 117, 219);
 
 }
 
