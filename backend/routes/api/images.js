@@ -13,12 +13,26 @@ const { handleValidationErrors } = require('../../utils/validation');
     '/',
     singleMulterUpload("image"),
     asyncHandler(async (req, res) => {
-      const { email, password, username } = req.body;
+      const { location } = req.body;
       const imageUrl = await singlePublicFileUpload(req.file);
-      console.log('STFF=>', imageUrl, req.body)
+
+      const image = await Image.create({
+        location,
+        imageUrl,
+      })
+
+      const allImages = await Image.findAll({
+        where: {location: location}
+      })
+
+
+      const array = []
+      allImages.forEach(imageObj => {
+        array.push(imageObj.dataValues)
+      })
 
       return res.json({
-        user,
+        'array': array,
       });
     }),
   );

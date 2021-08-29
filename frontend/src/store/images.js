@@ -2,7 +2,7 @@ import { csrfFetch } from './csrf';
 
 export const ADD_IMAGE ='images/addImage';
 
-const addImage = (location, array) => {
+const setImages = (location, array) => {
   return {
     type: ADD_IMAGE,
     array,
@@ -10,20 +10,30 @@ const addImage = (location, array) => {
   };
 };
 
-// const removeUser = () => {
-//   return {
-//     type: REMOVE_USER,
-//   };
-// };
+
+export const getImages = (location) => async dispatch => {
+  const response = await csrfFetch('api/images')
+  const data = await response.json()
+}
 
 export const uploadImage = (image, location) => async dispatch => {
-    const response = await csrfFetch('/api/images');
-    // const data = await response.json();
-    const data = {
-      location: 'homepage',
-      array: [1, 2, 3],
-    }
-    dispatch(addImage(data.location, data.array));
+  const formData = new FormData()
+
+  if(image){
+    formData.append('image', image)
+  }
+  formData.append('location', location)
+
+    const response = await csrfFetch('/api/images', {
+      method: 'POST',
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+      body: formData, location
+    });
+    const data = await response.json();
+
+    dispatch(setImages(location, data.array));
     // return response;
   };
 
@@ -33,7 +43,6 @@ export const uploadImage = (image, location) => async dispatch => {
 const imagesReducer = (state = {}, action) => {
   switch (action.type) {
     case ADD_IMAGE:
-      console.log('DISPATCH TRIGGERSE')
       return {
         ...state,
         [action.location]: action.array,
