@@ -11,9 +11,11 @@ const { handleValidationErrors } = require('../../utils/validation');
 
   router.post(
     '/',
+    singleMulterUpload("image"),
     asyncHandler(async (req, res) => {
       const { email, password, username } = req.body;
-      const user = await User.signup({ email, username, password });
+      const imageUrl = await singlePublicFileUpload(req.file);
+      console.log('STFF=>', imageUrl, req.body)
 
       return res.json({
         user,

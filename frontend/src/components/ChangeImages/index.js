@@ -3,6 +3,7 @@ import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import './ChangeImages.css'
+import { uploadImage } from '../../store/images';
 
 
 function ChangeImages({imageArr, setChangeSlide}) {
@@ -10,13 +11,14 @@ function ChangeImages({imageArr, setChangeSlide}) {
   const sessionUser = useSelector(state => state.session.user);
 
   async function uploadFile(e){
-    // await dispatch(updateFarmImage(e.target.files[0], farm.id))
+    await dispatch(uploadImage(e.target.files[0], 'homepage'))
+     console.log('FUNCTION TRIGGERED')
 }
 
   console.log('this is imagearr', imageArr)
   return (
     <div className='change__image__page'>
-      <input type='file' id='file' hidden onChnage={(e) => uploadFile(e)}/>
+      <input type='file' id='file' hidden onChange={(e) => uploadFile(e)}/>
       <i className='fas fa-window-close image__close' onClick={() => setChangeSlide(false)}/>
         {imageArr.map(imageObj => (
           <div key={imageObj.image_url} className='image__card' style={{backgroundImage: `url(${imageObj.image_url})`, backgroundSize: '150px 100px'}}>
