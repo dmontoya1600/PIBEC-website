@@ -12,9 +12,13 @@ function ChangeImages({imageArr, setChangeSlide}) {
 
   async function uploadFile(e){
     await dispatch(uploadImage(e.target.files[0], 'homepage'))
-
+    setChangeSlide(false)
 }
 
+  async function deleteImage(imageId){
+    // await dispatch(removeImage(imageId))
+    
+  }
 
   return (
     <div className='change__image__page'>
@@ -22,7 +26,7 @@ function ChangeImages({imageArr, setChangeSlide}) {
       <i className='fas fa-window-close image__close' onClick={() => setChangeSlide(false)}/>
         {imageArr.map(imageObj => (
           <div key={imageObj.imageUrl} className='image__card' style={{backgroundImage: `url(${imageObj.imageUrl})`, backgroundSize: '150px 100px'}}>
-                <i className='fa fa-close image__delete'/>
+                <i className='fa fa-close image__delete' onClick={ (e) => deleteImage(imageObj.id)}/>
             </div>
         ))}
         <i className='fas fa-plus image__add' onClick={() => document.getElementById('file').click()}/>
