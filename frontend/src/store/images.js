@@ -12,8 +12,9 @@ const setImages = (location, array) => {
 
 
 export const getImages = (location) => async dispatch => {
-  const response = await csrfFetch('api/images')
+  const response = await csrfFetch(`api/images/${location}`)
   const data = await response.json()
+  dispatch(setImages(location, data.array))
 }
 
 export const uploadImage = (image, location) => async dispatch => {

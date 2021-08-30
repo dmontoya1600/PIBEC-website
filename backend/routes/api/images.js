@@ -9,6 +9,28 @@ const { User, Array, Image } = require('../../db/models');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 
+  router.get(
+    '/:location',
+    asyncHandler(async (req, res) => {
+      const location = req.params.location;
+
+      const allImages = await Image.findAll({
+        where: {location: location}
+      })
+
+
+      const array = []
+      allImages.forEach(imageObj => {
+        array.push(imageObj.dataValues)
+      })
+
+      return res.json({
+        'array': array,
+      });
+    }),
+  );
+
+
   router.post(
     '/',
     singleMulterUpload("image"),
