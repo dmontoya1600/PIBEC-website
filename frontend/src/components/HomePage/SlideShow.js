@@ -16,6 +16,7 @@ function SlideShow({location}) {
   let [fadeinto, setFadeIn] = useState(1)
   let [authSlide, setAuthSlide] = useState('home')
   let [changeSlide, setChangeSlide] = useState(false)
+  let location = 'homepage'
   // imageArrs = useSelector(state => state.arrays)
 
   useEffect(() => {
@@ -60,7 +61,7 @@ function SlideShow({location}) {
 
   return (
     <div className={`slideshow__component ${authSlide}`}>
-      {changeSlide ? <ChangeImages setChangeSlide={setChangeSlide} imageArr={imageArr} />: null}
+      {changeSlide ? <ChangeImages setChangeSlide={setChangeSlide} imageArr={imageArr} location={location} />: null}
         {authSlide === 'authslide' ? <div className='slideshow__overlay' onClick={() => handleSlideClick()}/> : null }
         <i className='fas fa-arrow-left slide__arrow left__arrow' onClick={() => handleLeftClick()}/>
         <i className='fas fa-arrow-right slide__arrow right__arrow' onClick={() => handleRightClick()}/>

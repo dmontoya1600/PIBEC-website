@@ -17,6 +17,15 @@ export const getImages = (location) => async dispatch => {
   dispatch(setImages(location, data.array))
 }
 
+export const removeImage = (id, location) => async dipatch => {
+  const response = await csrfFetch (`api/images/${id}`, {
+    method: 'DELETE'
+  })
+  const data = await response.json()
+  dispatch(setImages(location, data.array))
+
+}
+
 export const uploadImage = (image, location) => async dispatch => {
   const formData = new FormData()
 

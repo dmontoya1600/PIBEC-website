@@ -3,21 +3,21 @@ import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import './ChangeImages.css'
-import { uploadImage } from '../../store/images';
+import { removeImage, uploadImage } from '../../store/images';
 
 
-function ChangeImages({imageArr, setChangeSlide}) {
+function ChangeImages({imageArr, setChangeSlide, location}) {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
 
   async function uploadFile(e){
-    await dispatch(uploadImage(e.target.files[0], 'homepage'))
+    await dispatch(uploadImage(e.target.files[0], location))
     setChangeSlide(false)
 }
 
   async function deleteImage(imageId){
-    // await dispatch(removeImage(imageId))
-    
+    // await dispatch(removeImage(imageId, location))
+    await dispatch(removeImage(imageId, location))
   }
 
   return (
