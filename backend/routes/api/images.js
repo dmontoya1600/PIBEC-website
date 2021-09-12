@@ -36,11 +36,12 @@ const { handleValidationErrors } = require('../../utils/validation');
     singleMulterUpload("image"),
     asyncHandler(async (req, res) => {
       const { location } = req.body;
-      const imageUrl = await singlePublicFileUpload(req.file);
+      const {imageUrl, Key} = await singlePublicFileUpload(req.file);
 
       const image = await Image.create({
         location,
         imageUrl,
+        key: Key
       })
 
       const allImages = await Image.findAll({
@@ -58,5 +59,9 @@ const { handleValidationErrors } = require('../../utils/validation');
       });
     }),
   );
+
+router.delete(
+  '/',
+)
 
 module.exports = router;

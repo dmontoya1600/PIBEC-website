@@ -2,7 +2,7 @@
 module.exports = (sequelize, DataTypes) => {
   const Image = sequelize.define('Image', {
     location: DataTypes.STRING,
-    comment: DataTypes.STRING,
+    key: DataTypes.STRING,
     subLocation: DataTypes.STRING,
     imageUrl: DataTypes.STRING,
     arrayId: {

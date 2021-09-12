@@ -24,11 +24,12 @@ function ChangeImages({imageArr, setChangeSlide, location}) {
     <div className='change__image__page'>
       <input type='file' id='file' hidden onChange={(e) => uploadFile(e)}/>
       <i className='fas fa-window-close image__close' onClick={() => setChangeSlide(false)}/>
-        {imageArr.map(imageObj => (
+        {imageArr ? imageArr.map(imageObj => (
           <div key={imageObj.imageUrl} className='image__card' style={{backgroundImage: `url(${imageObj.imageUrl})`, backgroundSize: '150px 100px'}}>
                 <i className='fa fa-close image__delete' onClick={ (e) => deleteImage(imageObj.id)}/>
             </div>
-        ))}
+        )) :
+          null }
         <i className='fas fa-plus image__add' onClick={() => document.getElementById('file').click()}/>
     </div>
   );

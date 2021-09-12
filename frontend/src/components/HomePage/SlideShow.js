@@ -16,7 +16,7 @@ function SlideShow({location}) {
   let [fadeinto, setFadeIn] = useState(1)
   let [authSlide, setAuthSlide] = useState('home')
   let [changeSlide, setChangeSlide] = useState(false)
-  let location = 'homepage'
+
   // imageArrs = useSelector(state => state.arrays)
 
   useEffect(() => {

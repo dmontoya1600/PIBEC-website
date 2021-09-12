@@ -22,6 +22,11 @@
 .image__delete{
     color: white;
 }
+
+.image__delete:hover{
+    color: rgb(166, 166, 166);
+}
+
 .image__close{
     color: rgb(99, 153, 255);
     position: absolute;

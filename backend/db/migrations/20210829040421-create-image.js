@@ -11,7 +11,7 @@ module.exports = {
       location: {
         type: Sequelize.STRING
       },
-      comment: {
+      key: {
         type: Sequelize.STRING
       },
       subLocation: {
