@@ -13,6 +13,14 @@ const s3 = new AWS.S3({ apiVersion: "2006-03-01" });
 
 // --------------------------- Public UPLOAD ------------------------
 
+const deleteFile = async (key) => {
+  
+  await s3.deleteObject({Key: key, Bucket: NAME_OF_BUCKET}, function(err, data) {
+    if (err) console.log(err, err.stack); // an error occurred
+    else     console.log(data);           // successful response
+  });
+}
+
 const singlePublicFileUpload = async (file) => {
   const { originalname, mimetype, buffer } = await file;
   const path = require("path");
@@ -100,4 +108,5 @@ module.exports = {
   retrievePrivateFile,
   singleMulterUpload,
   multipleMulterUpload,
+  deleteFile
 };
