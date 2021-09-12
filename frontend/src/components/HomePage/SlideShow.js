@@ -30,6 +30,9 @@ function SlideShow({location}) {
       // if slide is 0 it will move them to the final slide
       // if slide is deleted and user is currently on deleted slide it will move them one slide back
     }
+    if( currentIdx < (imageArr?.length - 1)  ){
+      setCurrentIdx (imageArr?.length - 1)
+    }
   }, [imageArr?.length])
 
 
@@ -70,7 +73,7 @@ function SlideShow({location}) {
 
   return (
     <div className={`slideshow__component ${authSlide}`}>
-      {changeSlide ? <ChangeImages setChangeSlide={setChangeSlide} imageArr={imageArr} location={location} />: null}
+      {changeSlide && sessionUser ? <ChangeImages setChangeSlide={setChangeSlide} imageArr={imageArr} location={location} />: null}
         {authSlide === 'authslide' ? <div className='slideshow__overlay' onClick={() => handleSlideClick()}/> : null }
         <i className='fas fa-arrow-left slide__arrow left__arrow' onClick={() => handleLeftClick()}/>
         <i className='fas fa-arrow-right slide__arrow right__arrow' onClick={() => handleRightClick()}/>
