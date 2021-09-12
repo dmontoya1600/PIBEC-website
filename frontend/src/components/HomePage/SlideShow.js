@@ -21,6 +21,15 @@ function SlideShow({location}) {
 
   useEffect(() => {
     dispatch(getImages(location))
+    if( currentIdx === imageArr?.length && imageArr?.length !== 0 ){
+      if(currentIdx === 0){
+        setCurrentIdx( imageArr?.length - 1)
+      } else {
+        setCurrentIdx( currentIdx - 1 )
+      }
+      // if slide is 0 it will move them to the final slide
+      // if slide is deleted and user is currently on deleted slide it will move them one slide back
+    }
   }, [imageArr?.length])
 
 

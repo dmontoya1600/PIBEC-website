@@ -12,7 +12,6 @@ function ChangeImages({imageArr, setChangeSlide, location}) {
 
   async function uploadFile(e){
     await dispatch(uploadImage(e.target.files[0], location))
-    setChangeSlide(false)
 }
 
   async function deleteImage(imageId){
