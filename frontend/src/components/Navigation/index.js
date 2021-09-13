@@ -26,8 +26,6 @@ function Navigation({ isLoaded }){
   return (
     <ul className='navbar__component'>
       <li>
-        <NavLink exact to="/">Home</NavLink>
-        {isLoaded && sessionLinks}
         <i className='fas fa-bars' onClick={() => setActiveMore(!activeMore)}/>
       </li>
       {activeMore && <More setActiveMore={setActiveMore}/>}
