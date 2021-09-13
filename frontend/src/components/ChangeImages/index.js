@@ -11,6 +11,7 @@ function ChangeImages({imageArr, setChangeSlide, location}) {
   const sessionUser = useSelector(state => state.session.user);
 
   async function uploadFile(e){
+    console.log('TSTING FUNC')
     await dispatch(uploadImage(e.target.files[0], location))
 }
 
@@ -20,7 +21,6 @@ function ChangeImages({imageArr, setChangeSlide, location}) {
   }
 
   return (
-    <div className='shadow__background' onClick={ () => setChangeSlide(false) }>
       <div className='change__image__page'>
         <input type='file' id='file' hidden onChange={(e) => uploadFile(e)}/>
         <i className='fas fa-window-close image__close' onClick={() => setChangeSlide(false)}/>
@@ -31,7 +31,6 @@ function ChangeImages({imageArr, setChangeSlide, location}) {
           )) :
           null }
           <i className='fas fa-plus image__add' onClick={() => document.getElementById('file').click()}/>
-      </div>
       </div>
   );
 }

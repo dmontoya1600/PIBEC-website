@@ -1,5 +1,5 @@
 .change__image__page{
-    z-index: 5;
+    z-index: 6;
     background-color: rgba(137, 136, 136, 0.759);
     display: grid;
     grid-template:  100px / repeat(100, 150px) 45px;

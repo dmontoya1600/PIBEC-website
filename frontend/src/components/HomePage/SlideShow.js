@@ -90,7 +90,12 @@ function SlideShow({location}) {
 
   return (
     <div className={`slideshow__component ${authSlide}`}>
-      {changeSlide && sessionUser ? <ChangeImages setChangeSlide={setChangeSlide} imageArr={imageArr} location={location} />: null}
+      {changeSlide&& sessionUser ?
+        <div className='shadow__background' onClick={ () => setChangeSlide(false)} />
+      :null}
+      {changeSlide && sessionUser ?
+        <ChangeImages setChangeSlide={setChangeSlide} imageArr={imageArr} location={location} />
+      : null}
         {authSlide === 'authslide' ? <div className='slideshow__overlay' onClick={() => handleSlideClick()}/> : <div className='slideshow__overlay' /> }
         <i className='fas fa-arrow-left slide__arrow left__arrow' onClick={() => handleLeftClick()}/>
         <i className='fas fa-arrow-right slide__arrow right__arrow' onClick={() => handleRightClick()}/>
