@@ -6,6 +6,7 @@ import ChangeImages from '../ChangeImages';
 import './HomePage.css'
 import { getImages } from '../../store/images';
 
+
 function SlideShow({location}) {
   console.log('THIS IS LOCATION', location)
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ function SlideShow({location}) {
   let [fadeinto, setFadeIn] = useState(1)
   let [authSlide, setAuthSlide] = useState('home')
   let [changeSlide, setChangeSlide] = useState(false)
+  let [timer, setTimer] = useState(0)
 
   // imageArrs = useSelector(state => state.arrays)
 
@@ -59,7 +61,7 @@ function SlideShow({location}) {
   }
 
   function handleRightClick() {
-    if(currentIdx === (imageArr.length - 1)){
+    if(currentIdx === (imageArr?.length - 1)){
         setCurrentIdx(0)
     } else{
         setCurrentIdx(currentIdx + 1)
@@ -69,6 +71,21 @@ function SlideShow({location}) {
   function handleSlideClick() {
     setChangeSlide(true)
   }
+
+  useEffect(() => {
+      if(currentIdx === (imageArr?.length - 1)){
+        return setCurrentIdx(0)
+      } else{
+        return setCurrentIdx(currentIdx + 1)
+      }
+  }, [timer]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTimer(timer => timer + 1);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
 
   return (
