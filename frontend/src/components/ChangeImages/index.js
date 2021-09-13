@@ -11,12 +11,10 @@ function ChangeImages({imageArr, setChangeSlide, location}) {
   const sessionUser = useSelector(state => state.session.user);
 
   async function uploadFile(e){
-    console.log('TSTING FUNC')
     await dispatch(uploadImage(e.target.files[0], location))
 }
 
   async function deleteImage(imageId){
-    // await dispatch(removeImage(imageId, location))
     await dispatch(removeImage(imageId, location))
   }
 

@@ -8,7 +8,6 @@ import { getImages } from '../../store/images';
 
 
 function SlideShow({location}) {
-  console.log('THIS IS LOCATION', location)
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   let imageArr = useSelector(state => state.images[location])

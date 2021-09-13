@@ -1,11 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
+import More from './More'
 
 function Navigation({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
+  const [activeMore, setActiveMore] = useState(false)
 
   let sessionLinks;
   if (sessionUser) {
@@ -26,7 +28,9 @@ function Navigation({ isLoaded }){
       <li>
         <NavLink exact to="/">Home</NavLink>
         {isLoaded && sessionLinks}
+        <i className='fas fa-bars' onClick={() => setActiveMore(!activeMore)}/>
       </li>
+      {activeMore && <More setActiveMore={setActiveMore}/>}
     </ul>
   );
 }
