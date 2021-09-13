@@ -1,6 +1,6 @@
 .change__image__page{
     z-index: 5;
-    background-color: rgba(203, 203, 203, 0.759);
+    background-color: rgba(137, 136, 136, 0.759);
     display: grid;
     grid-template:  100px / repeat(100, 150px) 45px;
     column-gap: 10px;
@@ -19,12 +19,20 @@
     border-radius: 8px;
 }
 
+.shadow__background{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.485);
+    z-index: 10;
+}
+
 .image__delete{
-    color: white;
+    color: rgb(251, 0, 0);
 }
 
 .image__delete:hover{
-    color: rgb(166, 166, 166);
+    color: rgb(156, 0, 0);
 }
 
 .image__close{
