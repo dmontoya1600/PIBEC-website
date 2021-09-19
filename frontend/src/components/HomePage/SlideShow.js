@@ -17,7 +17,9 @@ function SlideShow({location}) {
   let [authSlide, setAuthSlide] = useState('home')
   let [changeSlide, setChangeSlide] = useState(false)
   let [timer, setTimer] = useState(0)
-
+  console.log('IMAGEARR LEN', imageArr)
+  console.log('currentslide', currentSlide)
+  console.log('currentidx', currentIdx)
   // imageArrs = useSelector(state => state.arrays)
 
   useEffect(() => {
@@ -72,9 +74,10 @@ function SlideShow({location}) {
   }
 
   useEffect(() => {
-      if(currentIdx === (imageArr?.length - 1)){
+      if(currentIdx === (imageArr?.length - 1) || imageArr?.length <= 0 || !imageArr){
         return setCurrentIdx(0)
-      } else{
+      }
+      else{
         return setCurrentIdx(currentIdx + 1)
       }
   }, [timer]);
