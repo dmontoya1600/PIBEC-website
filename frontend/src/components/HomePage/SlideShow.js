@@ -17,10 +17,6 @@ function SlideShow({location}) {
   let [authSlide, setAuthSlide] = useState('home')
   let [changeSlide, setChangeSlide] = useState(false)
   let [timer, setTimer] = useState(0)
-  console.log('IMAGEARR LEN', imageArr)
-  console.log('currentslide', currentSlide)
-  console.log('currentidx', currentIdx)
-  // imageArrs = useSelector(state => state.arrays)
 
   useEffect(() => {
     dispatch(getImages(location))
@@ -89,6 +85,18 @@ function SlideShow({location}) {
     return () => clearInterval(interval);
   }, []);
 
+  function bubbleArr(){
+    if(imageArr?.length >= 1){
+
+      return imageArr?.map((ele, idx) => {
+        if(idx === currentIdx){
+         return <i className='fas fa-circle' />
+        } else {
+         return <i className='far fa-circle' />
+        }
+      })
+    }
+  }
 
   return (
     <div className={`slideshow__component ${authSlide}`}>
@@ -104,6 +112,7 @@ function SlideShow({location}) {
         <div className='slide__phone'>956-123-4567</div>
         <div className='slide__message'>WELCOME TO PIBEC</div>
         <div className='slide__contact'>CONTACT US</div>
+        <div className='slide__array'>{bubbleArr()}</div>
         <img fadeinto={fadeinto} onAnimationEnd={() => setFadeIn(0)} className='slide__image' src={currentSlide?.imageUrl} />
     </div>
   );
