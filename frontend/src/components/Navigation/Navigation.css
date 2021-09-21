@@ -44,33 +44,94 @@
 
 .more__page{
     position: fixed;
-    background-color: rgba(0, 0, 0, 0.629);
-    top: 0%;
+    background-color: rgba(31, 53, 66, 0.765);
+    border: rgba(255, 255, 255, 0.683) solid 1px;
+    top: 20%;
     left: 0%;
     right: 0%;
-    height: 100%;
-    width: 100%;
+    height: fit-content;
+    width: 50%;
     display: grid;
     grid-template-areas:
     '. . x'
-    '. h .'
-    '. a .'
-    '. c .'
+    'h h h'
+    'a a a'
+    'c c c'
     '. . .'
-    '. l .';
+    'l l l';
 }
 
 .more__logout{
     color: white;
     font-size: 30px;
+    grid-area: l;
+    padding-top: 25px;
+    border-bottom: white solid 1px;
+    text-align: center;
+    height: fit-content;
+}
+.more__logout:hover{
+    color: rgb(197, 197, 197);
+    border-bottom: rgb(197, 197, 197) solid 1px;
+}
 
+.more__home{
+    color: white;
+    font-size: 27px;
+    grid-area: h;
+    border-bottom: white solid 1px;
+    text-decoration: none;
+    text-align: center;
+    padding-top: 20px;
+    /* height: fit-content; */
+
+}
+.more__home:hover{
+    color: rgb(197, 197, 197);
+    border-bottom: rgb(197, 197, 197) solid 1px;
 }
 
 .fa-window-close{
+    grid-area: x;
     color: white;
     font-size: 30px;
+    height: fit-content;
+    width: fit-content;
+    justify-self: end;
 }
 
 .fa-window-close:hover{
     color: rgb(190, 190, 190)
+}
+
+.more__about{
+    color: white;
+    font-size: 27px;
+    padding-top: 20px;
+    grid-area: a;
+    border-bottom: white solid 1px;
+    text-decoration: none;
+    text-align: center;
+    height: fit-content;
+}
+.more__about:hover{
+    color: rgb(197, 197, 197);
+    border-bottom: rgb(197, 197, 197) solid 1px;
+}
+
+
+.more__contact{
+    color: white;
+    font-size: 27px;
+    padding-top: 20px;
+    grid-area: c;
+    border-bottom: white solid 1px;
+    text-decoration: none;
+    text-align: center;
+    height: fit-content;
+    top: 0px;
+}
+.more__contact:hover{
+    color: rgb(197, 197, 197);
+    border-bottom: rgb(197, 197, 197) solid 1px;
 }
