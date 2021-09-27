@@ -44,7 +44,11 @@
 
 .more__page{
     position: fixed;
-    background-color: rgba(31, 53, 66, 0.765);
+    /* background-color: rgba(31, 53, 66, 0.765); */
+    background-color: rgba(0, 0, 0, 0.765);
+
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
     border: rgba(255, 255, 255, 0.683) solid 1px;
     top: 20%;
     left: 0%;
@@ -71,8 +75,12 @@
     height: fit-content;
 }
 .more__logout:hover{
-    color: rgb(197, 197, 197);
+    color: rgb(149, 149, 149);
     border-bottom: rgb(197, 197, 197) solid 1px;
+}
+
+div > .selected{
+    color: rgb(149, 149, 149);
 }
 
 .more__home{
@@ -87,20 +95,20 @@
 
 }
 .more__home:hover{
-    color: rgb(197, 197, 197);
+    color: rgb(149, 149, 149);
     border-bottom: rgb(197, 197, 197) solid 1px;
 }
 
-.fa-window-close{
+.fa-times-circle{
     grid-area: x;
     color: white;
-    font-size: 30px;
+    font-size: 23px;
     height: fit-content;
     width: fit-content;
     justify-self: end;
 }
 
-.fa-window-close:hover{
+.fa-times-circle:hover{
     color: rgb(190, 190, 190)
 }
 
@@ -115,7 +123,7 @@
     height: fit-content;
 }
 .more__about:hover{
-    color: rgb(197, 197, 197);
+    color: rgb(149, 149, 149);
     border-bottom: rgb(197, 197, 197) solid 1px;
 }
 
@@ -125,13 +133,13 @@
     font-size: 27px;
     padding-top: 20px;
     grid-area: c;
-    border-bottom: white solid 1px;
+
     text-decoration: none;
     text-align: center;
     height: fit-content;
     top: 0px;
 }
 .more__contact:hover{
-    color: rgb(197, 197, 197);
+    color: rgb(149, 149, 149);
     border-bottom: rgb(197, 197, 197) solid 1px;
 }

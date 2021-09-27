@@ -28,11 +28,11 @@ function closePage(){
 
   return (
     <div className={`more__page ${contentLoaded}`} onAnimationEnd={() => slideOutFunction()}>
-        <NavLink to='/' className='more__home' activeClassName='selected'>Home</NavLink>
+        <NavLink exact to='/' className='more__home' activeClassName='selected'>Home</NavLink>
         <NavLink to='/about-us' className='more__about' activeClassName='selected'>About Us</NavLink>
         <NavLink to='/contact-us' className='more__contact' activeClassName='selected'>Contact Us</NavLink>
         {sessionUser && <div className='more__logout' onClick={logout}>Log Out</div>}
-        <i className='far fa-window-close' onClick={() => closePage()}/>
+        <i className='fas fa-times-circle' onClick={() => closePage()}/>
     </div>
   );
 }
