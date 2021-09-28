@@ -14,6 +14,9 @@
     font-size: 25px;
     margin-top: 10px;
 }
+.fa-bars:hover{
+    color: rgb(144, 144, 144)
+}
 
 @keyframes slideFromLeft{
     0% {
@@ -79,13 +82,13 @@
     font-size: 30px;
     grid-area: l;
     padding-top: 25px;
-    border-bottom: white solid 1px;
+    border-top: white solid 1px;
     text-align: center;
     height: fit-content;
 }
 .more__logout:hover{
     color: rgb(0, 90, 125);
-    border-bottom: rgb(197, 197, 197) solid 1px;
+    border-top: rgb(197, 197, 197) solid 1px;
 }
 
 div > .selected{
@@ -150,5 +153,5 @@ div > .selected{
 }
 .more__contact:hover{
     color: rgb(0, 90, 125);
-    border-bottom: rgb(197, 197, 197) solid 1px;
+    /* border-bottom: rgb(197, 197, 197) solid 1px; */
 }
