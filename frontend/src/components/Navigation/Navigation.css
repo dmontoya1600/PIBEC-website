@@ -46,7 +46,7 @@
     position: fixed;
     /* background-color: rgba(31, 53, 66, 0.765); */
     background-color: rgba(0, 0, 0, 0.765);
-
+    z-index: 3;
     border-top-right-radius: 12px;
     border-bottom-right-radius: 12px;
     border: rgba(255, 255, 255, 0.683) solid 1px;
@@ -64,6 +64,15 @@
     '. . .'
     'l l l';
 }
+.more__background{
+    background-color: rgba(0, 0, 0, 0);
+    position: fixed;
+    z-index: 2;
+    height: 100vh;
+    width: 100vw;
+    top: 0px;
+    left: 0px;
+}
 
 .more__logout{
     color: white;
@@ -75,12 +84,12 @@
     height: fit-content;
 }
 .more__logout:hover{
-    color: rgb(149, 149, 149);
+    color: rgb(0, 90, 125);
     border-bottom: rgb(197, 197, 197) solid 1px;
 }
 
 div > .selected{
-    color: rgb(149, 149, 149);
+    color: rgb(0, 90, 125);
 }
 
 .more__home{
@@ -95,7 +104,7 @@ div > .selected{
 
 }
 .more__home:hover{
-    color: rgb(149, 149, 149);
+    color: rgb(0, 90, 125);
     border-bottom: rgb(197, 197, 197) solid 1px;
 }
 
@@ -123,7 +132,7 @@ div > .selected{
     height: fit-content;
 }
 .more__about:hover{
-    color: rgb(149, 149, 149);
+    color: rgb(0, 90, 125);
     border-bottom: rgb(197, 197, 197) solid 1px;
 }
 
@@ -140,6 +149,6 @@ div > .selected{
     top: 0px;
 }
 .more__contact:hover{
-    color: rgb(149, 149, 149);
+    color: rgb(0, 90, 125);
     border-bottom: rgb(197, 197, 197) solid 1px;
 }
