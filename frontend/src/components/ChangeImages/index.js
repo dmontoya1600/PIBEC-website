@@ -19,7 +19,7 @@ function ChangeImages({imageArr, setChangeSlide, location}) {
   }
 
   return (
-      <div className='change__image__page'>
+      <div className='change__image__page' style={{gridTemplate: `100px / repeat(${imageArr?.length + 1}, 150px) 45px`}}>
         <input type='file' id='file' hidden onChange={(e) => uploadFile(e)}/>
         <i className='fas fa-window-close image__close' onClick={() => setChangeSlide(false)}/>
           {imageArr ? imageArr.map(imageObj => (
