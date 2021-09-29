@@ -20,6 +20,7 @@ function HomePage() {
         <SlideShow location='homepage'/>
         <div className='home__page__content'>
             <div className='inner__stuff'>This thing is going to have a lot of  stuff</div>
+            <div className='rando__stuff'>RANDOM STUFF</div>
         </div>
     </div>
   );

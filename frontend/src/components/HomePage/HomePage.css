@@ -15,10 +15,16 @@
     margin-top: 50px;
 }
 
+.rando__stuff{
+    height: 2000px;
+    width: 200px;
+}
+
 .home__page__content{
-    height: 100%;
+    height: max-content;
     width: 100%;
-    background-color: cornflowerblue;
+    background-image: url("http://cdn.shopify.com/s/files/1/0250/5422/files/ios_linen_texture___black_by_vegardhw-d3ddll5_copy.jpg?2614");
+    background-repeat: repeat-y;
     color: white;
     z-index: 2;
     position: absolute;
@@ -92,6 +98,8 @@
 
 .slide__message{
     grid-area: message;
+    text-shadow: black 1px 0 10px;
+    font-family: 'Permanent Marker', serif;
     text-align: center;
     z-index: 3;
     color: white;

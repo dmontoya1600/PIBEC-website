@@ -110,7 +110,7 @@ function SlideShow({location}) {
         <i className='fas fa-arrow-left slide__arrow left__arrow' onClick={() => handleLeftClick()}/>
         <i className='fas fa-arrow-right slide__arrow right__arrow' onClick={() => handleRightClick()}/>
         <div className='slide__phone'>956-123-4567</div>
-        <div className='slide__message'>WELCOME TO PIBEC</div>
+        <div className='slide__message'>Primera Iglesia Bautista El Calvario</div>
         <div className='slide__contact'>CONTACT US</div>
         <div className='slide__array'>{bubbleArr()}</div>
         <img fadeinto={fadeinto} onAnimationEnd={() => setFadeIn(0)} className='slide__image' src={currentSlide?.imageUrl} />

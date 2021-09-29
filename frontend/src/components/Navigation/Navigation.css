@@ -57,8 +57,9 @@
     left: 0%;
     right: 0%;
     height: fit-content;
-    width: 50%;
+    width: 40%;
     display: grid;
+    font-family:  "Andale Mono", monospace;
     grid-template-areas:
     '. . x'
     'h h h'
@@ -83,7 +84,8 @@
     grid-area: l;
     padding-top: 25px;
     border-top: white solid 1px;
-    text-align: center;
+    /* text-align: center; */
+    padding-left: 35px;
     height: fit-content;
 }
 .more__logout:hover{
@@ -97,11 +99,13 @@ div > .selected{
 
 .more__home{
     color: white;
+    padding-bottom: 5px;
     font-size: 27px;
     grid-area: h;
     border-bottom: white solid 1px;
     text-decoration: none;
-    text-align: center;
+    /* text-align: center; */
+    padding-left: 35px;
     padding-top: 20px;
     /* height: fit-content; */
 
@@ -126,12 +130,15 @@ div > .selected{
 
 .more__about{
     color: white;
+    padding-bottom: 5px;
+
     font-size: 27px;
     padding-top: 20px;
     grid-area: a;
     border-bottom: white solid 1px;
     text-decoration: none;
-    text-align: center;
+    /* text-align: center; */
+    padding-left: 35px;
     height: fit-content;
 }
 .more__about:hover{
@@ -142,12 +149,14 @@ div > .selected{
 
 .more__contact{
     color: white;
+    padding-bottom: 5px;
+
     font-size: 27px;
     padding-top: 20px;
     grid-area: c;
-
+    padding-left: 35px;
     text-decoration: none;
-    text-align: center;
+    /* text-align: center; */
     height: fit-content;
     top: 0px;
 }
