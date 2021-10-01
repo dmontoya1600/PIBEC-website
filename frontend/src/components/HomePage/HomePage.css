@@ -171,3 +171,15 @@
     z-index: 2;
     background-color: rgba(0, 0, 0, 0.416);
 }
+
+/* EMBEDDED COMPONENT */
+.embedded__controls{
+    background-color: cornflowerblue;
+}
+.fa-code{
+    color: white;
+}
+
+.fa-code:hover{
+    color: rgb(205, 205, 205);
+}
