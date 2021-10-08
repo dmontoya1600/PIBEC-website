@@ -1,17 +1,34 @@
 import React, {useState} from 'react';
 import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import './HomePage.css'
 
 
 
 function EmbeddedPost({ isLoaded }){
+  const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   const [openCode, setOpenCode] = useState(false)
+  const [embeddedCode, setEmbeddedCode] = useState(null)
 
+  function handleUpdate() {
+    // return dispatch(updateEmbeddedCode(embeddedCode, location))
+  }
+
+  function embedded__update(){
+    return (
+      <div className='embedded__update__page'>
+        <input type='text' className='embedded__input' placeholder='Paste Embedded Code...' onChange={(e) => setEmbeddedCode(e.target.value)}/>
+        <i className="fas fa-upload" onClick={()=> handleUpdate()}/>
+      </div>
+    )
+  }
 
   return (
     <div className='embedded__component'>
+      {openCode && sessionUser ?
+        embedded__update()
+      :null}
         <div className='embedded__controls'>
             <i className="fas fa-code" onClick={() => setOpenCode(!openCode)} />
         </div>

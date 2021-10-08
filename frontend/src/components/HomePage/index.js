@@ -11,6 +11,7 @@ import { getImages } from '../../store/images';
 function HomePage() {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
+  const location = 'homepage'
 
   useEffect(() => {
 
@@ -18,11 +19,11 @@ function HomePage() {
 
   return (
     <div className='home__page'>
-        <SlideShow location='homepage'/>
+        <SlideShow location={location}/>
         <div className='home__page__content'>
             <div className='inner__stuff'>This thing is going to have a lot of  stuff</div>
             <div className='rando__stuff'>RANDOM STUFF</div>
-            <EmbeddedPost />
+            <EmbeddedPost location={location}/>
         </div>
     </div>
   );
