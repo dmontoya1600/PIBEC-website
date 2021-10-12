@@ -22,6 +22,12 @@ export const getEmbeddedCode = (location, position = 0) => async dispatch => {
   */
 }
 
+export const createUpdateCode = (location, position = 0) => async dispatch => {
+  const response = await csrfFetch(`api/embedded/${location}`)
+  const data = await response.json()
+  dispatch(setEmbeddedCode(location, data.array))
+}
+
 
 
 export const removeImage = (id, location) => async dispatch => {
