@@ -28,7 +28,6 @@ export const removeImage = (id, location) => async dispatch => {
 
 export const uploadImage = (image, location) => async dispatch => {
   const formData = new FormData()
-
   if(image){
     formData.append('image', image)
   }
