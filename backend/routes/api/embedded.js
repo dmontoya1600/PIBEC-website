@@ -50,6 +50,16 @@ router.get(
         where: {location: location}
       })
 
+      if (!allEmbedded) {
+        // within here we are going to have the logic
+        // only if this statement gives proper reading
+        // problem is that we need to add another where statement
+        // const embedded = await Embeddeded.create({
+        //   location,
+        //   position,
+        //   code,
+        // })
+      }
 
       const array = []
       allEmbedded.forEach(embeddedObj => {
