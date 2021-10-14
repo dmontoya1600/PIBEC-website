@@ -16,7 +16,7 @@
 }
 
 .rando__stuff{
-    height: 2000px;
+    height: 1000px;
     width: 200px;
 }
 
@@ -31,6 +31,7 @@
     margin-top: 500px;
     display: flex;
     justify-content: center;
+    flex-direction: column;
 }
 
 .inner__stuff{
