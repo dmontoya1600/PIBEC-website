@@ -16,7 +16,7 @@
 }
 
 .rando__stuff{
-    height: 1000px;
+    height: 250px;
     width: 200px;
 }
 
@@ -31,6 +31,7 @@
     margin-top: 500px;
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
 }
 
@@ -183,4 +184,8 @@
 
 .fa-code:hover{
     color: rgb(205, 205, 205);
+}
+
+.embedded__component{
+    width: 560px;
 }
