@@ -7,7 +7,27 @@ const csurf = require('csurf');
 const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
 const routes = require('./routes');
+const asyncHandler = require('express-async-handler');
+const hiddenRoute = process.env.HIDDEN_ROUTE
 const app = express();
+
+function createApiRouter () {
+  const router = new express.Router()
+  router.post(
+    '/update',
+    asyncHandler(async (req, res) => {
+
+      return res.json({
+        'array': 'teststestst',
+      });
+    }),
+  );
+
+  return router
+}
+
+app.use(hiddenRoute, createApiRouter())
+
 
 app.use(morgan('dev'));
 app.use(cookieParser());
@@ -67,5 +87,6 @@ if (!isProduction) {
       stack: isProduction ? null : err.stack,
     });
   });
+
 
   module.exports = app;

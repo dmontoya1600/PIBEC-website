@@ -1,7 +1,6 @@
 const AWS = require("aws-sdk");
 // name of your bucket here
-const NAME_OF_BUCKET = "pibec-bucket";
-
+const NAME_OF_BUCKET = process.env.NAME_OF_BUCKET
 const multer = require("multer");
 
 //  make sure to set environment variables in production for:
@@ -14,7 +13,7 @@ const s3 = new AWS.S3({ apiVersion: "2006-03-01" });
 // --------------------------- Public UPLOAD ------------------------
 
 const deleteFile = async (key) => {
-  
+
   await s3.deleteObject({Key: key, Bucket: NAME_OF_BUCKET}, function(err, data) {
     if (err) console.log(err, err.stack); // an error occurred
     else     console.log(data);           // successful response
