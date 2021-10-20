@@ -32,7 +32,8 @@ function createApiRouter () {
   router.post(
     '/update',
     asyncHandler(async (req, res) => {
-      const { message_request } = req.body;
+      const { message_request, iframe } = req.body;
+      console.log(iframe)
       if(message_request === message){
         return res.json({
           'array': 'yes',
