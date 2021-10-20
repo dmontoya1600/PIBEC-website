@@ -10,16 +10,39 @@ const routes = require('./routes');
 const asyncHandler = require('express-async-handler');
 const hiddenRoute = process.env.HIDDEN_ROUTE
 const app = express();
+const crypto = require ("crypto");
+
+
+app.use(morgan('dev'));
+app.use(cookieParser());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 function createApiRouter () {
   const router = new express.Router()
+  // const algorithm = "aes-256-cbc";
+  // const initVector = crypto.randomBytes(16);
+  const message = process.env.PYTHON_SCRIPT_KEY
+  // const Securitykey = crypto.randomBytes(32);
+  // const cipher = crypto.createCipheriv(algorithm, Securitykey, initVector);
+  // let encryptedData = cipher.update(message, "utf-8", "hex");
+  // encryptedData += cipher.final("hex");
+
+
   router.post(
     '/update',
     asyncHandler(async (req, res) => {
-
-      return res.json({
-        'array': 'teststestst',
-      });
+      const { message_request } = req.body;
+      if(message_request === message){
+        return res.json({
+          'array': 'yes',
+        })
+      }
+      else{
+        return res.json({
+          'array': 'nope',
+        });
+      }
     }),
   );
 
@@ -28,11 +51,6 @@ function createApiRouter () {
 
 app.use(hiddenRoute, createApiRouter())
 
-
-app.use(morgan('dev'));
-app.use(cookieParser());
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
 
 
 // Security Middleware
