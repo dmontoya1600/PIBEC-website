@@ -26,7 +26,7 @@ option.add_argument('--headless')
 option.add_argument('--no-sandbox')
 option.add_argument('--disable-dev-sh-usage')
 
-print('THIS IS THE PATH', os.environ.get('CHROME_DRIVER_PATH'))
+print('THIS IS THE PATH', os.environ.get('CHROMEDRIVER_PATH'))
 driver = webdriver.Chrome(chrome_options=option, executable_path=os.environ.get('CHROME_DRIVER_PATH'))
 
 driver.get('https://www.facebook.com/')
