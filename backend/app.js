@@ -20,13 +20,7 @@ app.use(express.json());
 
 function createApiRouter () {
   const router = new express.Router()
-  // const algorithm = "aes-256-cbc";
-  // const initVector = crypto.randomBytes(16);
   const message = process.env.PYTHON_SCRIPT_KEY
-  // const Securitykey = crypto.randomBytes(32);
-  // const cipher = crypto.createCipheriv(algorithm, Securitykey, initVector);
-  // let encryptedData = cipher.update(message, "utf-8", "hex");
-  // encryptedData += cipher.final("hex");
 
 
   router.post(
