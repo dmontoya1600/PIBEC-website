@@ -21,13 +21,14 @@ option.add_argument("--disable-extensions")
 option.add_experimental_option("prefs", {
     "profile.default_content_setting_values.notifications": 2
 })
-# op.binary_location = os.environ.get('GOOGLE_CHROME_BIN')
+# GOOGLE CHROME BIN IS ONLY NEEDED FOR HEROKU
+# option.binary_location = os.environ.get('GOOGLE_CHROME_BIN')
 option.add_argument('--headless')
 option.add_argument('--no-sandbox')
 option.add_argument('--disable-dev-sh-usage')
 
 print('THIS IS THE PATH', os.environ.get('CHROMEDRIVER_PATH'))
-driver = webdriver.Chrome(chrome_options=option, executable_path=os.environ.get('CHROME_DRIVER_PATH'))
+driver = webdriver.Chrome(chrome_options=option, executable_path=os.environ.get('CHROMEDRIVER_PATH'))
 
 driver.get('https://www.facebook.com/')
 email = driver.find_element(By.NAME, 'email')
