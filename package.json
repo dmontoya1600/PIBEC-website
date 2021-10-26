@@ -1,5 +1,5 @@
 {
-    "name": "authenticate-me",
+    "name": "pibec-website",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
@@ -14,7 +14,7 @@
     },
     "repository": {
       "type": "git",
-      "url": "git+https://github.com/dmontoya1600/authenticate-me.git"
+      "url": "git+https://github.com/dmontoya1600/PIBEC-website.git"
     },
     "keywords": [],
     "author": "",
