@@ -11,6 +11,7 @@ const asyncHandler = require('express-async-handler');
 const hiddenRoute = process.env.HIDDEN_ROUTE
 const app = express();
 const crypto = require ("crypto");
+const {Embedded} = require('./db/models')
 
 
 app.use(morgan('dev'));
@@ -29,13 +30,17 @@ function createApiRouter () {
       const { message_request, iframe } = req.body;
       console.log(iframe)
       if(message_request === message){
+        const embedded =  await Embedded.create({
+          date = new Date(),
+          code = iframe
+        })
         return res.json({
-          'array': 'yes',
+          'Message': 'Successfully created new model for iframe.',
         })
       }
       else{
         return res.json({
-          'array': 'nope',
+          'Message': 'nope you dont belong here.',
         });
       }
     }),

@@ -14,6 +14,9 @@ module.exports = {
       position: {
         type: Sequelize.INTEGER
       },
+      date:{
+        type: Sequelize.DATE
+      },
       code: {
         type: Sequelize.STRING(500),
       },
