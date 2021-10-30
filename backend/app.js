@@ -29,10 +29,11 @@ function createApiRouter () {
     asyncHandler(async (req, res) => {
       const { message_request, iframe } = req.body;
       console.log(iframe)
+
       if(message_request === message){
         const embedded =  await Embedded.create({
-          date = new Date(),
-          code = iframe
+          date: new Date(),
+          code: iframe
         })
         return res.json({
           'Message': 'Successfully created new model for iframe.',
