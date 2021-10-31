@@ -23,11 +23,11 @@ function HomePage() {
         <div className='home__page__content'>
           <div className='home__page__information'>
             <div className='information__tabs'>
-              <i className="fa-solid fa-clock-ten information__icon" />
-              <div className='information__text'>Service time, Sundays 11 a.m, Wednesday 7 p.m</div>
+              <i className="fas fa-clock information__icon" />
+              <div className='information__text'>Service time, Sundays 11a.m, Wednesday 7p.m</div>
             </div>
             <div className='information__tabs'>
-              <i className="fa-solid fa-location-dot information__icon" />
+              <i className="fas fa-map-marker-alt information__icon" />
               <div className='information__text'>2000 North Minnasota Ave Brownsville, TX 78521</div>
             </div>
             {/* <div className='information__tabs'>
