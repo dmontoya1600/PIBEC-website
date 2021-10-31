@@ -33,7 +33,7 @@ function closePage(){
           <NavLink to='/about-us' className='more__about' activeClassName='selected'>About Us</NavLink>
           <NavLink to='/contact-us' className='more__contact' activeClassName='selected'>Contact Us</NavLink>
           {sessionUser && <div className='more__logout' onClick={logout}>Log Out</div>}
-          <i className='fas fa-times-circle' onClick={() => closePage()}/>
+          <i className='fas fa-times' onClick={() => closePage()}/>
       </div>
           <div className='more__background' onClick={() => closePage()} ></div>
     </div>

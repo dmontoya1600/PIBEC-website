@@ -94,7 +94,7 @@
 }
 
 div > .selected{
-    color: rgb(0, 90, 125);
+    color: rgb(0, 120, 167);
 }
 
 .more__home{
@@ -115,16 +115,17 @@ div > .selected{
     border-bottom: rgb(197, 197, 197) solid 1px;
 }
 
-.fa-times-circle{
+.fa-times{
     grid-area: x;
     color: white;
-    font-size: 23px;
+    font-size: 21px;
+    margin-right: 5px;
     height: fit-content;
     width: fit-content;
     justify-self: end;
 }
 
-.fa-times-circle:hover{
+.fa-times:hover{
     color: rgb(190, 190, 190)
 }
 
