@@ -228,3 +228,17 @@ html {
 .embedded__component{
     width: 560px;
 }
+
+
+
+.about__us__home{
+    font-size: 40px;
+    text-align: center;
+    width: 450px;
+    font-family: 'Oswald', serif;
+
+}
+.about__us__home>p{
+    font-size: 20px;
+    text-align:initial
+}
