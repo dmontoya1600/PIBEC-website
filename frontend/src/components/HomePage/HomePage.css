@@ -130,6 +130,8 @@ html {
     color: white;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.245);
+    font-family: 'Oswald', serif;
+
     height: fit-content;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -140,7 +142,9 @@ html {
 .slide__message{
     grid-area: message;
     text-shadow: black 1px 0 10px;
-    font-family: 'Permanent Marker', serif;
+    /* font-family: 'Permanent Marker', serif; */
+    font-family: 'Oswald', serif;
+
     text-align: center;
     z-index: 3;
     color: white;

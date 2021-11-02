@@ -5,6 +5,7 @@ import { Redirect, useParams } from 'react-router-dom';
 import ChangeImages from '../ChangeImages';
 import './HomePage.css'
 import { getImages } from '../../store/images';
+import logo from '../../images/logo.png'
 
 
 function SlideShow({location}) {
@@ -109,8 +110,12 @@ function SlideShow({location}) {
         {authSlide === 'authslide' ? <div className='slideshow__overlay' onClick={() => handleSlideClick()}/> : <div className='slideshow__overlay' /> }
         <i className='fas fa-arrow-left slide__arrow left__arrow' onClick={() => handleLeftClick()}/>
         <i className='fas fa-arrow-right slide__arrow right__arrow' onClick={() => handleRightClick()}/>
-        <div className='slide__phone'>956-123-4567</div>
-        <div className='slide__message'>Primera Iglesia Bautista El Calvario</div>
+        <div className='slide__phone'>Primera Iglesia Bautista El Calvario</div>
+        <div className='slide__message'>
+          {/* <img src={logo}/>
+           */}
+           Primera Iglesia Bautista El Calvario
+        </div>
         <div className='slide__contact'>CONTACT US</div>
         <div className='slide__array'>{bubbleArr()}</div>
         <img fadeinto={fadeinto} onAnimationEnd={() => setFadeIn(0)} className='slide__image' src={currentSlide?.imageUrl} />
