@@ -63,6 +63,10 @@ html {
 .information__text{
     font-size: 20px;
 }
+.information__text.live_stream{
+    text-decoration: underline;
+    color: inherit;
+}
 .information__text.location{
     text-decoration: underline;
     color: inherit;

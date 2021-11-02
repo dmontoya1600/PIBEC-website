@@ -25,7 +25,7 @@ function EmbeddedPost({ isLoaded }){
   }
 
   return (
-    <div className='embedded__component'>
+    <div id='embedded__element' className='embedded__component'>
       {openCode && sessionUser ?
         embedded__update()
       :null}

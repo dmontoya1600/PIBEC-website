@@ -22,6 +22,11 @@ function HomePage() {
         <SlideShow location={location}/>
         <div className='home__page__content'>
           <div className='home__page__information'>
+
+            <div className='information__tabs live_stream'>
+              <i className="fas fa-desktop information__icon live_stream" />
+              <a href='#embedded__element' className='information__text live_stream'>Watch us live!</a>
+            </div>
             <div className='information__tabs clock'>
               <i className="fas fa-clock information__icon clock" />
               <div className='information__text'>Service time, Sundays 11a.m, Wednesday 7p.m</div>
@@ -30,10 +35,7 @@ function HomePage() {
               <i className="fas fa-map-marker-alt information__icon location" />
               <a className='information__text location' href='#google__map'>2000 North Minnasota Ave Brownsville, TX 78521</a>
             </div>
-            {/* <div className='information__tabs'>
-              <i className="fa-solid fa-location-dot information__icon" />
-              <div className='information__text'>2000 North Minnasota Ave Brownsville, TX 78521</div>
-            </div> */}
+
           </div>
             <EmbeddedPost location={location}/>
             <div id='about_us' className='about__us__home'>
