@@ -329,3 +329,10 @@ html {
 
     }
 }
+.below-viewport{
+    opacity: 0;
+    transform: translateY(40px);
+}
+.scroll-transition-fade{
+    transition: transform 1s ease-in-out,opacity .8s ease-in-out;
+}

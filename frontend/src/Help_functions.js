@@ -1,10 +1,19 @@
-export function isInViewport(el) {
-    const rect = el.getBoundingClientRect();
-    return (
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+import React, { useEffect, useState } from 'react';
 
-    );
-}
+
+export function useOnScreen(ref) {
+
+    const [isIntersecting, setIntersecting] = useState(false)
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIntersecting(entry.isIntersecting)
+    )
+
+    useEffect(() => {
+      observer.observe(ref.current)
+      // Remove the observer as soon as the component is unmounted
+      return () => { observer.disconnect() }
+    }, [])
+
+    return isIntersecting
+  }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, useParams } from 'react-router-dom';
@@ -6,22 +6,20 @@ import SlideShow from './SlideShow';
 import EmbeddedPost from './EmbeddedPost';
 import './HomePage.css'
 import { getImages } from '../../store/images';
-import {isInViewport} from '../../Help_functions'
+import {useOnScreen} from '../../Help_functions'
 
 
 function HomePage() {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   const location = 'homepage'
+  const ref = useRef()
+  const isVisible = useOnScreen(ref)
 
   useEffect(() => {
 
   }, [])
-  function vpResult(ele){
-    if(isInViewport(ele)){
-      return 'scroll-transition-fade'
-    }
-  }
+
 
   return (
     <div className='home__page'>
@@ -44,9 +42,9 @@ function HomePage() {
 
           </div>
             <EmbeddedPost location={location}/>
-            <div id='about_us' className='about__us__home'>
-              <p className={"about__us__text " + vpResult} >About Us</p>
-              <p className='about__believe__title'>Lo que creemos.</p>
+            <div id='about_us' className={'about__us__home scroll-transition-fade ' +(isVisible ? 'nothing' : 'below-viewport')} ref={ref} >
+              <p className={"about__us__text " +(isVisible ? 'scroll-transition-fade' : 'nothing')} ref={ref} >About Us</p>
+              <p className='about__believe__title' >Lo que creemos.</p>
               <p className='about__believe__content'>
                 Creemos en el Padre, Hijo, y El Espíritu Santo. Se predica de la Santa Biblia Reyna Valera Gomez. La salvación viene por El arrepentimiento de sus pecados y recibiendo a Jesucristo como su Señor y Salvador!
               </p>
