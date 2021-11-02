@@ -238,15 +238,94 @@ html {
 }
 
 
+@media (max-width: 1000px){
+    .about__us__home{
+        width: 550px;
+        font-family: 'Oswald', serif;
+        display: grid;
+        grid-template-areas:
+        "about about"
+        "btitle bcontent"
+        "ltitle ltitle"
+        "lcontent lcontent";
+        text-align: center;
+    }
 
-.about__us__home{
-    font-size: 40px;
-    text-align: center;
-    width: 450px;
-    font-family: 'Oswald', serif;
+    .about__us__text{
+        font-size: 55px;
+        grid-area: about;
+        /* font-family: 'Bebas Neue', serif; */
+    }
 
+
+    .about__believe__title{
+        font-size: 40px;
+        grid-area: btitle;
+        align-self: center;
+        font-family: 'Bebas Neue', serif;
+
+    }
+    .about__believe__content{
+        font-size: 20px;
+        text-align: initial;
+        grid-area: bcontent;
+        padding-left: 25px;
+    }
+    .about__location{
+        grid-area: ltitle;
+        font-size: 40px;
+        font-family: 'Bebas Neue', serif;
+        align-self: center;
+        justify-self: end;
+
+    }
+    #google__map{
+        grid-area: lcontent;
+        width: 400px;
+    }
 }
-.about__us__home>p{
-    font-size: 20px;
-    text-align:initial
+
+@media (min-width: 1000px){
+    .about__us__home{
+        width: 1000px;
+        font-family: 'Oswald', serif;
+        display: grid;
+        grid-template-areas:
+        "about about"
+        "btitle bcontent"
+        "lcontent ltitle";
+        text-align: center;
+    }
+
+    .about__us__text{
+        font-size: 70px;
+        grid-area: about;
+        /* font-family: 'Bebas Neue', serif; */
+    }
+
+
+    .about__believe__title{
+        font-size: 55px;
+        grid-area: btitle;
+        align-self: center;
+        font-family: 'Bebas Neue', serif;
+
+    }
+    .about__believe__content{
+        font-size: 27px;
+        text-align: initial;
+        grid-area: bcontent;
+        padding-left: 60px;
+    }
+    .about__location{
+        grid-area: ltitle;
+        font-size: 55px;
+        font-family: 'Bebas Neue', serif;
+        align-self: center;
+
+    }
+    #google__map{
+        grid-area: lcontent;
+
+    }
 }
