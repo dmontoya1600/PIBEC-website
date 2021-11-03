@@ -302,6 +302,26 @@ html {
         grid-area: about;
         /* font-family: 'Bebas Neue', serif; */
     }
+    .about__us__text:before,
+    .about__us__text:after {
+        background-color: rgb(255, 255, 255);
+        content: "";
+        display: inline-block;
+        height: 1px;
+        position: relative;
+        vertical-align: middle;
+        width: 50%;
+    }
+
+    .about__us__text:before {
+        right: 0.5em;
+        margin-left: -50%;
+    }
+    .about__us__text:after {
+        left: 0.5em;
+        margin-right: -50%;
+      }
+
 
 
     .about__believe__title{
@@ -309,6 +329,7 @@ html {
         grid-area: btitle;
         align-self: center;
         font-family: 'Bebas Neue', serif;
+        border-left: thick solid cornflowerblue;
 
     }
     .about__believe__content{
@@ -319,6 +340,8 @@ html {
     }
     .about__location{
         grid-area: ltitle;
+        border-right: thick solid cornflowerblue;
+
         font-size: 55px;
         font-family: 'Bebas Neue', serif;
         align-self: center;
