@@ -337,7 +337,10 @@ html {
     opacity: 0;
     transform: translateX(40px);
 }
-
+.below-viewport-3{
+    opacity: 0;
+    transform: translateX(-40px);
+}
 .scroll-transition-fade{
     transition: transform 2s ease-in-out,opacity 2s ease-in-out;
 }
