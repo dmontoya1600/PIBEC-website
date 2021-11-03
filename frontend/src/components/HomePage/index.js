@@ -15,6 +15,8 @@ function HomePage() {
   const location = 'homepage'
   const ref = useRef()
   const isVisible = useOnScreen(ref)
+  const ref2 = useRef()
+  const isVisible2 = useOnScreen(ref2)
 
   useEffect(() => {
 
@@ -42,10 +44,10 @@ function HomePage() {
 
           </div>
             <EmbeddedPost location={location}/>
-            <div id='about_us' className={'about__us__home scroll-transition-fade ' +(isVisible ? 'nothing' : 'below-viewport')} ref={ref} >
-              <p className={"about__us__text " +(isVisible ? 'scroll-transition-fade' : 'nothing')} ref={ref} >About Us</p>
+            <div id='about_us' className={'about__us__home scroll-transition-fade '} ref={ref} >
+              <p className={"about__us__text scroll-transition-fade " +(isVisible ? 'nothing' : 'below-viewport')} ref={ref} >About Us</p>
               <p className='about__believe__title' >Lo que creemos.</p>
-              <p className='about__believe__content'>
+              <p className={'about__believe__content scroll-transition-fade ' +(isVisible ? 'nothing' : 'below-viewport-2')} ref={ref2}>
                 Creemos en el Padre, Hijo, y El Espíritu Santo. Se predica de la Santa Biblia Reyna Valera Gomez. La salvación viene por El arrepentimiento de sus pecados y recibiendo a Jesucristo como su Señor y Salvador!
               </p>
               <p className='about__location'>Donde estamos.</p>

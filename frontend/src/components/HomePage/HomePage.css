@@ -333,6 +333,11 @@ html {
     opacity: 0;
     transform: translateY(40px);
 }
+.below-viewport-2{
+    opacity: 0;
+    transform: translateX(40px);
+}
+
 .scroll-transition-fade{
-    transition: transform 1s ease-in-out,opacity .8s ease-in-out;
+    transition: transform 2s ease-in-out,opacity 2s ease-in-out;
 }
