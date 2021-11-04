@@ -4,9 +4,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, useParams, useHistory } from 'react-router-dom';
 import SlideShow from './SlideShow';
 import EmbeddedPost from './EmbeddedPost';
+import Footer from './Footer';
 import './HomePage.css'
 import { getImages } from '../../store/images';
 import {useOnScreen} from '../../Help_functions'
+
 
 
 function HomePage() {
@@ -63,6 +65,7 @@ function HomePage() {
             </div>
             <div className='inner__stuff'>This thing is going to have a lot of  stuff</div>
             <div className='rando__stuff'>RANDOM STUFF</div>
+            <Footer />
         </div>
     </div>
   );

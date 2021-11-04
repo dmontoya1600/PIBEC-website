@@ -263,6 +263,8 @@ html {
         grid-area: btitle;
         align-self: center;
         font-family: 'Bebas Neue', serif;
+        border-left: thick solid cornflowerblue;
+
 
     }
     .about__believe__content{
@@ -277,6 +279,8 @@ html {
         font-family: 'Bebas Neue', serif;
         align-self: center;
         justify-self: end;
+        border-right: thick solid cornflowerblue;
+
 
     }
     #google__map{
@@ -366,4 +370,40 @@ html {
 }
 .scroll-transition-fade{
     transition: transform 2s ease-in-out,opacity 2s ease-in-out;
+}
+
+
+/* FOOTER CSS */
+.homepage__footer{
+    background-color: rgb(5, 5, 5);
+    width: 100%;
+    height: 250px;
+    font-family: 'Bebas Neue', serif;
+
+}
+
+.footer__contact__us{
+    background-color: rgb(51, 139, 158);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    height: 100%;
+}
+
+.contact__email{
+    height: 30px;
+    width: 50%;
+    border-radius: 7px;
+    border: thin solid;
+    align-self: center;
+}
+
+.contact__message{
+    height: 60px;
+    width: 70%;
+    border-radius: 7px;
+    border: thin solid;
+    align-self: center;
+
 }
