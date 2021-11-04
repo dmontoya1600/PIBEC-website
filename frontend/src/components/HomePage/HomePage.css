@@ -19,11 +19,6 @@ html {
     margin-top: 50px;
 }
 
-.rando__stuff{
-    height: 250px;
-    width: 200px;
-}
-
 .home__page__content{
     height: max-content;
     width: 100%;
@@ -240,8 +235,9 @@ html {
 
 @media (max-width: 1000px){
     .about__us__home{
+        overflow: hidden;
         width: 550px;
-        font-family: 'Oswald', serif;
+        font-family: 'Bebas Neue', serif;
         display: grid;
         grid-template-areas:
         "about about"
@@ -291,8 +287,9 @@ html {
 
 @media (min-width: 1000px){
     .about__us__home{
+        overflow: hidden;
         width: 1000px;
-        font-family: 'Oswald', serif;
+        font-family: 'Bebas Neue', serif;
         display: grid;
         grid-template-areas:
         "about about"
@@ -314,7 +311,7 @@ html {
         height: 1px;
         position: relative;
         vertical-align: middle;
-        width: 50%;
+        width: 20%;
     }
 
     .about__us__text:before {
@@ -359,10 +356,12 @@ html {
 .below-viewport{
     opacity: 0;
     transform: translateY(40px);
+
 }
 .below-viewport-2{
     opacity: 0;
     transform: translateX(40px);
+
 }
 .below-viewport-3{
     opacity: 0;
@@ -375,35 +374,69 @@ html {
 
 /* FOOTER CSS */
 .homepage__footer{
-    background-color: rgb(5, 5, 5);
+    margin-top: 100px;
+    margin-bottom: 25px;
+    background-color: rgba(5, 5, 5, 0);
     width: 100%;
-    height: 250px;
+    height: 400px;
     font-family: 'Bebas Neue', serif;
-
+    display: flex;
+    justify-content: center;
 }
 
 .footer__contact__us{
-    background-color: rgb(51, 139, 158);
+    background-color: rgba(255, 255, 255, 0.166);
     text-align: center;
     display: flex;
     flex-direction: column;
-    width: 40%;
+    width: 70%;
     height: 100%;
-}
+    border-radius: 6px;
+    font-size: 30px;
 
+}
+.footer__message__1{
+    margin-bottom: 0px;
+}
+.footer__message__2{
+    margin-top: 10px;
+}
 .contact__email{
     height: 30px;
     width: 50%;
-    border-radius: 7px;
-    border: thin solid;
+    border-radius: 5px;
+    border: thin solid rgba(255, 255, 255, 0.549);
     align-self: center;
+    font-family: 'Bebas Neue', serif;
+    font-size: 22px;
+
 }
 
 .contact__message{
-    height: 60px;
-    width: 70%;
-    border-radius: 7px;
-    border: thin solid;
+    margin-top: 25px;
+    height: 80px;
+    width: 80%;
+    border-radius: 5px;
+    border: thin solid rgba(255, 255, 255, 0.549);
     align-self: center;
+    resize: none;
+    font-family: 'Bebas Neue', serif;
+    font-size: 18px;
 
+}
+
+.contact__submit{
+    width: 150px;
+    height: 35px;
+    margin-top: 10px;
+    align-self: center;
+    background-color: cornflowerblue;
+    border: thin solid rgba(255, 255, 255, 0.419);
+    border-radius: 6px;
+    color: white;
+    font-size: 27px;
+    font-family: 'Bebas Neue', serif;
+}
+.contact__submit:hover{
+    background-color: rgb(77, 116, 189);
 }

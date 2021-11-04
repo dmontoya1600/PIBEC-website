@@ -116,7 +116,7 @@ function SlideShow({location}) {
            */}
            Primera Iglesia Bautista El Calvario
         </div>
-        <div className='slide__contact'>CONTACT US</div>
+        <a href='#footer' className='slide__contact'>CONTACT US</a>
         <div className='slide__array'>{bubbleArr()}</div>
         <img fadeinto={fadeinto} onAnimationEnd={() => setFadeIn(0)} className='slide__image' src={currentSlide?.imageUrl} />
     </div>

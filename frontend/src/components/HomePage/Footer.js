@@ -12,12 +12,13 @@ function Footer({ isLoaded }){
 
   return (
     <div id='footer' className='homepage__footer'>
-        <div className='footer__contact__us'>
-            <p>Do you have a question or a prayer request?</p>
-            <p>Contact Us.</p>
-            <input className='contact__email' type='text' placeholder='Email'/>
-            <input className='contact__message' type='text' placeholder='Message'/>
-        </div>
+        <form className='footer__contact__us'>
+            <p className='footer__message__1' >Do you have a question or a prayer request?</p>
+            <p className='footer__message__2' >Contact Us.</p>
+            <input className='contact__email' required type='email' placeholder='Email'/>
+            <textarea className='contact__message' required placeholder='Message'/>
+            <input type='submit' className='contact__submit'/>
+        </form>
     </div>
   );
 }
