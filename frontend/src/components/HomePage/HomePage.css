@@ -375,6 +375,11 @@ html {
 
 
 /* FOOTER CSS */
+.contact__link{
+    background-color: rgba(255, 0, 0, 0);
+    height: 15px;
+    width: 15px;
+}
 .homepage__footer{
     margin-top: 100px;
     /* margin-bottom: 25px; */
