@@ -39,7 +39,7 @@ function HomePage() {
 
             <div className='information__tabs live_stream'>
               <i className="fas fa-desktop information__icon live_stream" />
-              <a href='#embedded__element' onClick={() => removehash(history)} className='information__text live_stream'>Watch us live!</a>
+              <a href='#embedded__title' onClick={() => removehash(history)} className='information__text live_stream'>Watch us live!</a>
             </div>
             <div className='information__tabs clock'>
               <i className="fas fa-clock information__icon clock" />
@@ -51,6 +51,7 @@ function HomePage() {
             </div>
 
           </div>
+            <div id='embedded__title' className='embedded__title'>Stream the church service</div>
             <EmbeddedPost location={location}/>
             <div id='about_us' className={'about__us__home scroll-transition-fade '} ref={ref} >
               <p className={"about__us__text scroll-transition-fade " +(isVisible ? 'nothing' : 'below-viewport')} ref={ref} >About Us</p>
