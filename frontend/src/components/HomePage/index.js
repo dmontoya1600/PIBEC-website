@@ -7,12 +7,13 @@ import EmbeddedPost from './EmbeddedPost';
 import Footer from './Footer';
 import './HomePage.css'
 import { getImages } from '../../store/images';
-import {useOnScreen} from '../../Help_functions'
+import {useOnScreen, removehash} from '../../Help_functions'
 
 
 
 function HomePage() {
   const dispatch = useDispatch();
+  const history = useHistory()
   const sessionUser = useSelector(state => state.session.user);
   const location = 'homepage'
   const ref = useRef()
@@ -21,17 +22,14 @@ function HomePage() {
   const isVisible2 = useOnScreen(ref2)
   const ref3 = useRef()
   const isVisible3 = useOnScreen(ref3)
-  const history = useHistory()
+
+  // const ref4 = useRef()
+  // const isVisible4 = useOnScreen(ref4)
 
   useEffect(() => {
 
   }, [])
-  function removehash() {
-    setTimeout(() => {
-      history.replace('', document.title, window.location.origin + window.location.pathname + window.location.search);
-    }, 5)
 
-  }
 
   return (
     <div className='home__page'>
@@ -41,7 +39,7 @@ function HomePage() {
 
             <div className='information__tabs live_stream'>
               <i className="fas fa-desktop information__icon live_stream" />
-              <a href='#embedded__element' onClick={() => removehash()} className='information__text live_stream'>Watch us live!</a>
+              <a href='#embedded__element' onClick={() => removehash(history)} className='information__text live_stream'>Watch us live!</a>
             </div>
             <div className='information__tabs clock'>
               <i className="fas fa-clock information__icon clock" />
@@ -49,7 +47,7 @@ function HomePage() {
             </div>
             <div className='information__tabs location' href='#google__map'>
               <i className="fas fa-map-marker-alt information__icon location" />
-              <a className='information__text location' onClick={(e) => removehash(e) }href='#google__map'>2000 North Minnasota Ave Brownsville, TX 78521</a>
+              <a className='information__text location' onClick={(e) => removehash(history) }href='#google__map'>2000 North Minnasota Ave Brownsville, TX 78521</a>
             </div>
 
           </div>
@@ -63,6 +61,7 @@ function HomePage() {
               <p className={'about__location scroll-transition-fade ' +(isVisible2 ? 'nothing' : 'below-viewport-2')} ref={ref2}>Donde estamos.</p>
               <div className={"scroll-transition-fade " +(isVisible2 ? 'nothing' : 'below-viewport-3')} id='google__map' ref={ref2} dangerouslySetInnerHTML={{ __html: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3587.886786570354!2d-97.43290918497543!3d25.938941883556623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x866fbe0425939131%3A0xb4534ad760db747a!2s2000%20N%20Minnesota%20Ave%2C%20Brownsville%2C%20TX%2078521!5e0!3m2!1sen!2sus!4v1635742369010!5m2!1sen!2sus" width="550" height="350" style="border:0;" allowfullscreen="" loading="lazy" />`}} />
             </div>
+            {/* <div className='contact__link' /> */}
             <Footer />
         </div>
     </div>

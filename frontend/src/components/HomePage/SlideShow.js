@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect, useParams } from 'react-router-dom';
+import { Redirect, useParams, useHistory } from 'react-router-dom';
 import ChangeImages from '../ChangeImages';
 import './HomePage.css'
 import { getImages } from '../../store/images';
 import logo from '../../images/logo.png'
+import {removehash} from '../../Help_functions'
 
 
 function SlideShow({location}) {
   const dispatch = useDispatch();
+  const history = useHistory()
   const sessionUser = useSelector(state => state.session.user);
   let imageArr = useSelector(state => state.images[location])
   let [currentIdx, setCurrentIdx] = useState(0)
@@ -116,7 +118,7 @@ function SlideShow({location}) {
            */}
            Primera Iglesia Bautista El Calvario
         </div>
-        <a href='#footer' className='slide__contact'>CONTACT US</a>
+        <a onClick={() => removehash(history)}href='#footer' className='slide__contact'>CONTACT US</a>
         <div className='slide__array'>{bubbleArr()}</div>
         <img fadeinto={fadeinto} onAnimationEnd={() => setFadeIn(0)} className='slide__image' src={currentSlide?.imageUrl} />
     </div>
