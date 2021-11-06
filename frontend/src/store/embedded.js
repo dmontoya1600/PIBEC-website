@@ -14,12 +14,7 @@ const setEmbeddedCode = (location, array) => {
 export const getEmbeddedCode = (location, position = 0) => async dispatch => {
   const response = await csrfFetch(`api/embedded/${location}`)
   const data = await response.json()
-//   dispatch(setEmbeddedCode(location, data.array))
-  /*
-    RESPONSE SHOULD RETURN AN ARRAY OF ALL THE EMBEDDED CODE FROM THAT LOCATION
-    RESPONSE SHOULD BE AN ARRAY OF EMBEDDED CODE WITH THEIR POSITION AND LOCATION
-
-  */
+  dispatch(setEmbeddedCode(location, data.array))
 }
 
 export const updateEmbeddedCode = (embedded, location, position = 0) => async dispatch => {

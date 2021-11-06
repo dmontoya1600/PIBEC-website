@@ -15,7 +15,7 @@ router.get(
     asyncHandler(async (req, res) => {
       const location = req.params.location;
 
-      const allEmbedded = await Embeddeded.findAll({
+      const allEmbedded = await Embedded.findAll({
         where: {location: location}
       })
 
@@ -59,7 +59,7 @@ router.get(
         // })
       // }
       const embeddedCreate = await Embedded.create({
-        embedded,
+        code: embedded,
         location,
         date: Date()
       })
