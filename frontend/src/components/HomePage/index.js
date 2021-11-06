@@ -17,14 +17,9 @@ function HomePage() {
   const sessionUser = useSelector(state => state.session.user);
   const location = 'homepage'
   const ref = useRef()
-  const isVisible = useOnScreen(ref)
   const ref2 = useRef()
-  const isVisible2 = useOnScreen(ref2)
   const ref3 = useRef()
-  const isVisible3 = useOnScreen(ref3)
-
-  // const ref4 = useRef()
-  // const isVisible4 = useOnScreen(ref4)
+  const ref4 = useRef()
 
   useEffect(() => {
 
@@ -51,16 +46,16 @@ function HomePage() {
             </div>
 
           </div>
-            <div id='embedded__title' className='embedded__title'>Stream the church service</div>
+            <div id='embedded__title' ref={ref4} className={"embedded__title scroll-transition-fade " +(useOnScreen(ref4) ? 'nothing' : 'below-viewport-2')}>Stream the church service</div>
             <EmbeddedPost location={location}/>
             <div id='about_us' className={'about__us__home scroll-transition-fade '} ref={ref} >
-              <p className={"about__us__text scroll-transition-fade " +(isVisible ? 'nothing' : 'below-viewport')} ref={ref} >About Us</p>
-              <p className={"about__believe__title scroll-transition-fade " +(isVisible3 ? 'nothing' : 'below-viewport-3')} ref={ref3}>Lo que creemos.</p>
-              <p className={'about__believe__content scroll-transition-fade ' +(isVisible3 ? 'nothing' : 'below-viewport-2')} ref={ref3}>
+              <p className={"about__us__text scroll-transition-fade " +(useOnScreen(ref) ? 'nothing' : 'below-viewport')} ref={ref} >About Us</p>
+              <p className={"about__believe__title scroll-transition-fade " +(useOnScreen(ref3) ? 'nothing' : 'below-viewport-3')} ref={ref3}>Lo que creemos.</p>
+              <p className={'about__believe__content scroll-transition-fade ' +(useOnScreen(ref3) ? 'nothing' : 'below-viewport-2')} ref={ref3}>
                 Creemos en el Padre, Hijo, y El Espíritu Santo. Se predica de la Santa Biblia Reyna Valera Gomez. La salvación viene por El arrepentimiento de sus pecados y recibiendo a Jesucristo como su Señor y Salvador!
               </p>
-              <p className={'about__location scroll-transition-fade ' +(isVisible2 ? 'nothing' : 'below-viewport-2')} ref={ref2}>Donde estamos.</p>
-              <div className={"scroll-transition-fade " +(isVisible2 ? 'nothing' : 'below-viewport-3')} id='google__map' ref={ref2} dangerouslySetInnerHTML={{ __html: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3587.886786570354!2d-97.43290918497543!3d25.938941883556623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x866fbe0425939131%3A0xb4534ad760db747a!2s2000%20N%20Minnesota%20Ave%2C%20Brownsville%2C%20TX%2078521!5e0!3m2!1sen!2sus!4v1635742369010!5m2!1sen!2sus" width="550" height="350" style="border:0;" allowfullscreen="" loading="lazy" />`}} />
+              <p className={'about__location scroll-transition-fade ' +(useOnScreen(ref2) ? 'nothing' : 'below-viewport-2')} ref={ref2}>Donde estamos.</p>
+              <div className={"scroll-transition-fade " +(useOnScreen(ref2) ? 'nothing' : 'below-viewport-3')} id='google__map' ref={ref2} dangerouslySetInnerHTML={{ __html: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3587.886786570354!2d-97.43290918497543!3d25.938941883556623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x866fbe0425939131%3A0xb4534ad760db747a!2s2000%20N%20Minnesota%20Ave%2C%20Brownsville%2C%20TX%2078521!5e0!3m2!1sen!2sus!4v1635742369010!5m2!1sen!2sus" width="550" height="350" style="border:0;" allowfullscreen="" loading="lazy" />`}} />
             </div>
             <div className='contact__link' id='contact__link' />
             <Footer />

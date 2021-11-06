@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import './HomePage.css'
-
+import {useOnScreen} from '../../Help_functions'
 
 
 function EmbeddedPost({ isLoaded }){
@@ -10,6 +10,7 @@ function EmbeddedPost({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
   const [openCode, setOpenCode] = useState(false)
   const [embeddedCode, setEmbeddedCode] = useState(null)
+  const ref = useRef()
 
   function handleUpdate() {
     // return dispatch(updateEmbeddedCode(embeddedCode, location))
@@ -25,7 +26,7 @@ function EmbeddedPost({ isLoaded }){
   }
 
   return (
-    <div id='embedded__element' className='embedded__component'>
+    <div id='embedded__element' className={"embedded__component scroll-transition-fade " +(useOnScreen(ref) ? 'nothing' : 'below-viewport-3')} ref={ref}>
       {openCode && sessionUser ?
         embedded__update()
       :null}
