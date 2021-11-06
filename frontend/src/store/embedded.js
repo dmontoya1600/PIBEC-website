@@ -1,80 +1,56 @@
-// import { csrfFetch } from './csrf';
+import { csrfFetch } from './csrf';
 
-// export const ADD_IMAGE ='images/addImage';
+export const UPDATE_ARRAY ='embedd/upateArray';
 
-// const setImages = (location, array) => {
-//   return {
-//     type: ADD_IMAGE,
-//     array,
-//     location,
-//   };
-// };
+const setEmbeddedCode = (location, array) => {
+  return {
+    type: UPDATE_ARRAY,
+    array,
+    location,
+  };
+};
 
 
-// export const getEmbeddedCode = (location, position = 0) => async dispatch => {
-//   const response = await csrfFetch(`api/embedded/${location}`)
-//   const data = await response.json()
+export const getEmbeddedCode = (location, position = 0) => async dispatch => {
+  const response = await csrfFetch(`api/embedded/${location}`)
+  const data = await response.json()
 //   dispatch(setEmbeddedCode(location, data.array))
-//   /*
-//     RESPONSE SHOULD RETURN AN ARRAY OF ALL THE EMBEDDED CODE FROM THAT LOCATION
-//     RESPONSE SHOULD BE AN ARRAY OF EMBEDDED CODE WITH THEIR POSITION AND LOCATION
+  /*
+    RESPONSE SHOULD RETURN AN ARRAY OF ALL THE EMBEDDED CODE FROM THAT LOCATION
+    RESPONSE SHOULD BE AN ARRAY OF EMBEDDED CODE WITH THEIR POSITION AND LOCATION
 
-//   */
-// }
+  */
+}
 
-// export const createUpdateCode = (location, position = 0) => async dispatch => {
-//   const response = await csrfFetch(`api/embedded/${location}`)
-//   const data = await response.json()
+export const updateEmbeddedCode = (embedded, location, position = 0) => async dispatch => {
+  const response = await csrfFetch(`api/embedded/`, {
+      method: 'POST',
+      body: JSON.stringify({
+        embedded,
+        location
+      })
+  });
 
-//   dispatch(setEmbeddedCode(location, data.array))
-// }
-
-
-
-// export const removeImage = (id, location) => async dispatch => {
-//   const response = await csrfFetch (`api/images/${id}`, {
-//     method: 'DELETE'
-//   })
-//   const data = await response.json()
-//   dispatch(setImages(location, data.array))
-
-// }
-
-// export const uploadImage = (image, location) => async dispatch => {
-//   const formData = new FormData()
-
-//   if(image){
-//     formData.append('image', image)
-//   }
-//   formData.append('location', location)
-
-//     const response = await csrfFetch('/api/images', {
-//       method: 'POST',
-//       headers: {
-//         "Content-Type": "multipart/form-data",
-//       },
-//       body: formData, location
-//     });
-//     const data = await response.json();
-
-//     dispatch(setImages(location, data.array));
-//     // return response;
-//   };
+  const data = await response.json()
+  console.log('RESPOSNSE FROM EMBEDD',data)
+  dispatch(setEmbeddedCode(location, data.array))
+}
 
 
 
 
-// const embeddedReducer = (state = {}, action) => {
-//   switch (action.type) {
-//     case ADD_IMAGE:
-//       return {
-//         ...state,
-//         [action.location]: action.array,
 
-//       }
-//     default:
-//       return state;
-//   }
-// };
+const embeddedReducer = (state = {}, action) => {
+  switch (action.type) {
+    case UPDATE_ARRAY:
+      return {
+        ...state,
+        [action.location]: action.array,
 
-// export default embeddedReducer;
+      }
+    default:
+      return state;
+  }
+};
+
+export default embeddedReducer;

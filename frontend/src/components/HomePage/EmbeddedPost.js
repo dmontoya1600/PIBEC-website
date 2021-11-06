@@ -3,25 +3,33 @@ import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import './HomePage.css'
 import {useOnScreen} from '../../Help_functions'
+import {updateEmbeddedCode} from '../../store/embedded'
 
 
-function EmbeddedPost({ isLoaded }){
+function EmbeddedPost({ isLoaded, location }){
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   const [openCode, setOpenCode] = useState(false)
   const [embeddedCode, setEmbeddedCode] = useState(null)
   const ref = useRef()
 
-  function handleUpdate() {
-    // return dispatch(updateEmbeddedCode(embeddedCode, location))
+  function handleUpdate(e) {
+    console.log('testing submit form', embeddedCode);
+    if(embeddedCode.includes('<iframe')){
+      console.log('YES IT INCLUDES IT')
+      return dispatch(updateEmbeddedCode(embeddedCode, location))
+    } else{
+      console.log('NOPE NOT HERE');
+
+    }
   }
 
   function embedded__update(){
     return (
-      <div className='embedded__update__page'>
+      <form className='embedded__update__page'>
         <input type='text' className='embedded__input' placeholder='Paste Embedded Code...' onChange={(e) => setEmbeddedCode(e.target.value)}/>
-        <i className="fas fa-upload" onClick={()=> handleUpdate()}/>
-      </div>
+        <i onClick={()=> handleUpdate()} className="fas fa-upload"/>
+      </form>
     )
   }
 

@@ -236,6 +236,10 @@ html {
 }
 
 
+
+
+/* ********* ********* MEDIA STYLING ********* ********* */
+
 @media (max-width: 1000px){
     .about__us__home{
         overflow: hidden;
