@@ -46,6 +46,16 @@ export const restoreUser = () => async dispatch => {
     return response;
   };
 
+  export const submitForm = (submitValue) => async (dispatch) => {
+    // const response = await csrfFetch('/api/handleEmail', {
+    //   method: 'POST',
+    //   body: JSON.stringify({
+    //     submitValue
+    //   })
+    // })
+    console.log('THIS IS SUBVAL', submitValue)
+  }
+
 export const login = (user) => async (dispatch) => {
   const { credential, password } = user;
   const response = await csrfFetch('/api/session', {
