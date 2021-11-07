@@ -11,6 +11,8 @@ const asyncHandler = require('express-async-handler');
 const hiddenRoute = process.env.HIDDEN_ROUTE
 const app = express();
 const {Embedded} = require('./db/models')
+const { ValidationError } = require('sequelize');
+
 
 
 app.use(morgan('dev'));
@@ -77,7 +79,6 @@ if (!isProduction) {
 
   app.use(routes); // Connect all the routes
 
-  const { ValidationError } = require('sequelize');
 
   app.use((_req, _res, next) => {
     const err = new Error("The requested resource couldn't be found.");
