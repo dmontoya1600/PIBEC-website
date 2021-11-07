@@ -10,7 +10,6 @@ const routes = require('./routes');
 const asyncHandler = require('express-async-handler');
 const hiddenRoute = process.env.HIDDEN_ROUTE
 const app = express();
-const crypto = require ("crypto");
 const {Embedded} = require('./db/models')
 
 
@@ -35,6 +34,7 @@ function createApiRouter () {
           date: new Date(),
           code: iframe
         })
+        console.log('YES WE MADE IT')
         return res.json({
           'Message': 'Successfully created new model for iframe.',
         })
