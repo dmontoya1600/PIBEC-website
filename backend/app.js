@@ -11,48 +11,49 @@ const routes = require('./routes');
 const asyncHandler = require('express-async-handler');
 const hiddenRoute = process.env.HIDDEN_ROUTE
 const { ValidationError } = require('sequelize');
-// const {Embedded} = require('./db/models')
+const {Embedded} = require('./db/models')
 
 
 
 app.use(morgan('dev'));
-app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-// function createApiRouter () {
-//   const router = new express.Router()
-//   const message = process.env.PYTHON_SCRIPT_KEY
+function createApiRouter () {
+  const router = new express.Router()
+  const message = process.env.PYTHON_SCRIPT_KEY
 
 
-//   router.post(
-//     '/update',
-//     asyncHandler(async (req, res) => {
-//       const { message_request, iframe } = req.body;
-//       console.log(iframe)
+  router.post(
+    '/update',
+    asyncHandler(async (req, res) => {
+      const { message_request, iframe } = req.body;
+      console.log(iframe)
 
-//       if(message_request === message){
-//         const embedded =  await Embedded.create({
-//           date: new Date(),
-//           code: iframe
-//         })
-//         console.log('YES WE MADE IT')
-//         return res.json({
-//           'Message': 'Successfully created new model for iframe.',
-//         })
-//       }
-//       else{
-//         return res.json({
-//           'Message': 'nope you dont belong here.',
-//         });
-//       }
-//     }),
-//   );
+      if(message_request === message){
+        const embedded =  await Embedded.create({
+          date: new Date(),
+          code: iframe
+        })
+        console.log('YES WE MADE IT')
+        return res.json({
+          'Message': 'Successfully created new model for iframe.',
+        })
+      }
+      else{
+        return res.json({
+          'Message': 'nope you dont belong here.',
+        });
+      }
+    }),
+  );
 
-//   return router
-// }
+  return router
+}
 
-// app.use(hiddenRoute, createApiRouter())
+app.use(hiddenRoute, createApiRouter())
+
+app.use(cookieParser());
 
 
 
