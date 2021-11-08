@@ -34,8 +34,9 @@ function createApiRouter () {
 
       if(message_request === message){
         const embedded =  await Embedded.create({
-          date: new Date(),
-          code: iframe
+          date: Date(),
+          code: iframe,
+          location: 'homepage'
         })
         console.log('YES WE MADE IT')
         return res.json({

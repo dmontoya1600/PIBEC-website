@@ -8,6 +8,7 @@ import Footer from './Footer';
 import './HomePage.css'
 import { getImages } from '../../store/images';
 import {useOnScreen, removehash} from '../../Help_functions'
+import { getEmbeddedCode } from '../../store/embedded';
 
 
 
@@ -22,7 +23,7 @@ function HomePage() {
   const ref4 = useRef()
 
   useEffect(() => {
-
+    // dispatch(getEmbeddedCode(location))
   }, [])
 
 
