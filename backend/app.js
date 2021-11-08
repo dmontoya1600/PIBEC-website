@@ -14,8 +14,11 @@ const { ValidationError } = require('sequelize');
 const {Embedded} = require('./db/models')
 
 
+app.use(hiddenRoute, createApiRouter())
+
 
 app.use(morgan('dev'));
+app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
@@ -51,9 +54,6 @@ function createApiRouter () {
   return router
 }
 
-app.use(hiddenRoute, createApiRouter())
-
-app.use(cookieParser());
 
 
 
