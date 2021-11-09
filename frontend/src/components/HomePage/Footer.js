@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import './HomePage.css'
 import {useOnScreen} from '../../Help_functions'
 import { submitForm } from '../../store/session';
+import { csrfFetch } from '../../store/csrf'
 
 
 function Footer({ isLoaded }){
@@ -14,6 +15,7 @@ function Footer({ isLoaded }){
   const isVisible = useOnScreen(ref)
   const [emailValue, setEmail] = useState('')
   const [messageValue, setMessage] = useState('')
+  const [responseMessage, setResponse] = useState(null)
 
   async function submitContactForm(e){
       e.preventDefault()
@@ -21,10 +23,23 @@ function Footer({ isLoaded }){
         email: emailValue,
         message: messageValue
     }
-    await dispatch(submitForm(submitValue))
-    setEmail('')
-    setMessage('')
-  }
+    const response = await csrfFetch(`api/users/email`, {
+        method: 'POST',
+        body: JSON.stringify(submitValue)
+    })
+
+    setResponse(response.message)
+}
+
+    function emailRes(){
+        return(
+            <div className='email__response'>
+                <p className='email__message'>Email Succesfully Sent!</p>
+                <i class="fas fa-times-circle email__close" onClick={() => setResponse(null)}/>
+                <div className='email__shadow' onClick={() => setResponse(null)}/>
+            </div>
+        )
+    }
   return (
     <div id='footer' className='homepage__footer'>
         <form onSubmit={(e) => submitContactForm(e)} className={"footer__contact__us scroll-transition-fade " +(useOnScreen(ref) ? 'nothing' : 'below-viewport')}  ref={ref}>
@@ -38,6 +53,7 @@ function Footer({ isLoaded }){
             <p className='footer__tag__text'>Follow Us</p>
             <a href='https://www.facebook.com/pibelcalvario' className="fab fa-facebook footer__tag__fb"/>
         </div>
+        {responseMessage ? emailRes : null}
     </div>
   );
 }
