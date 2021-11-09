@@ -6,7 +6,7 @@ import { submitForm } from '../../store/session';
 import { csrfFetch } from '../../store/csrf'
 
 
-function Footer({ isLoaded }){
+function Footer({ isLoaded, setResponse}){
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   const [openCode, setOpenCode] = useState(false)
@@ -15,7 +15,6 @@ function Footer({ isLoaded }){
   const isVisible = useOnScreen(ref)
   const [emailValue, setEmail] = useState('')
   const [messageValue, setMessage] = useState('')
-  const [responseMessage, setResponse] = useState(null)
 
   async function submitContactForm(e){
       e.preventDefault()
@@ -27,19 +26,12 @@ function Footer({ isLoaded }){
         method: 'POST',
         body: JSON.stringify(submitValue)
     })
-
-    setResponse(response.message)
+    const data = await response.json()
+    await setResponse(data.message)
+    setEmail('')
+    setMessage('')
 }
 
-    function emailRes(){
-        return(
-            <div className='email__response'>
-                <p className='email__message'>Email Succesfully Sent!</p>
-                <i class="fas fa-times-circle email__close" onClick={() => setResponse(null)}/>
-                <div className='email__shadow' onClick={() => setResponse(null)}/>
-            </div>
-        )
-    }
   return (
     <div id='footer' className='homepage__footer'>
         <form onSubmit={(e) => submitContactForm(e)} className={"footer__contact__us scroll-transition-fade " +(useOnScreen(ref) ? 'nothing' : 'below-viewport')}  ref={ref}>
@@ -53,7 +45,6 @@ function Footer({ isLoaded }){
             <p className='footer__tag__text'>Follow Us</p>
             <a href='https://www.facebook.com/pibelcalvario' className="fab fa-facebook footer__tag__fb"/>
         </div>
-        {responseMessage ? emailRes : null}
     </div>
   );
 }

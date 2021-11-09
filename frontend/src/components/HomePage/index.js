@@ -21,14 +21,28 @@ function HomePage() {
   const ref2 = useRef()
   const ref3 = useRef()
   const ref4 = useRef()
+  const [responseMessage, setResponse] = useState(null)
+
 
   useEffect(() => {
     // dispatch(getEmbeddedCode(location))
   }, [])
 
+  function emailRes(){
+    return(
+        <div className='email__response'>
+            <div className='email__box'>
+              <p className='email__message'>Email Succesfully Sent!</p>
+              <i className="fas fa-times-circle email__close" onClick={() => setResponse(null)}/>
+            </div>
+            <div className='email__shadow' onClick={() => setResponse(null)}/>
+        </div>
+    )
+}
 
   return (
     <div className='home__page'>
+        {responseMessage ? emailRes() : null}
         <SlideShow location={location}/>
         <div className='home__page__content'>
           <div className='home__page__information'>
@@ -59,7 +73,7 @@ function HomePage() {
               <div className={"scroll-transition-fade " +(useOnScreen(ref2) ? 'nothing' : 'below-viewport-3')} id='google__map' ref={ref2} dangerouslySetInnerHTML={{ __html: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3587.886786570354!2d-97.43290918497543!3d25.938941883556623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x866fbe0425939131%3A0xb4534ad760db747a!2s2000%20N%20Minnesota%20Ave%2C%20Brownsville%2C%20TX%2078521!5e0!3m2!1sen!2sus!4v1635742369010!5m2!1sen!2sus" width="550" height="350" style="border:0;" allowfullscreen="" loading="lazy" />`}} />
             </div>
             <div className='contact__link' id='contact__link' />
-            <Footer />
+            <Footer setResponse={setResponse} />
         </div>
     </div>
   );

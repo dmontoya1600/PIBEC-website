@@ -480,3 +480,45 @@ html {
 .footer__tag__fb:hover{
     color: rgb(179, 179, 179);
 }
+.email__response{
+    position: fixed;
+    z-index: 5;
+    height: 100vh;
+    width: 100vw;
+}
+.email__shadow{
+    position: fixed;
+    z-index: 6;
+    background-color: rgba(0, 0, 0, 0.761);
+    height: 100%;
+    width: 100%;
+}
+.email__box{
+    position: absolute;
+    background-color: rgba(6, 88, 112, 0.734);
+    z-index: 7;
+    width: 300px;
+    height: 100px;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px; /* Negative half of height. */
+    margin-left: -150px; /* Negative half of width. */
+    display: grid;
+    grid-template-areas:
+    'closeE . .'
+    '. mess .'
+    '. . .';
+    border-radius: 6px;
+}
+
+.email__message{
+    grid-area: mess;
+    font-size: 20px;
+    color: white;
+
+}
+
+.email__close{
+    grid-area: closeE;
+    color: red;
+}
