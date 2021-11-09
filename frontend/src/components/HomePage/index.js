@@ -35,11 +35,11 @@ function HomePage() {
 
             <div className='information__tabs live_stream'>
               <i className="fas fa-desktop information__icon live_stream" />
-              <a href='#embedded__title' onClick={() => removehash(history)} className='information__text live_stream'>Watch us live!</a>
+              <a href='#embedded__title' onClick={() => removehash(history)} className='information__text live_stream'>¡Míranos en vivo!</a>
             </div>
             <div className='information__tabs clock'>
               <i className="fas fa-clock information__icon clock" />
-              <div className='information__text'>Service time, Sundays 11a.m, Wednesday 7p.m</div>
+              <div className='information__text'>Tiempo de Servicio, Domingo 11a.m, Miércoles 7p.m</div>
             </div>
             <div className='information__tabs location' href='#google__map'>
               <i className="fas fa-map-marker-alt information__icon location" />
@@ -47,10 +47,10 @@ function HomePage() {
             </div>
 
           </div>
-            <div id='embedded__title' ref={ref4} className={"embedded__title scroll-transition-fade " +(useOnScreen(ref4) ? 'nothing' : 'below-viewport-2')}>Stream the church service</div>
+            <div id='embedded__title' ref={ref4} className={"embedded__title scroll-transition-fade " +(useOnScreen(ref4) ? 'nothing' : 'below-viewport-2')}>Mira el servicio</div>
             <EmbeddedPost location={location}/>
             <div id='about_us' className={'about__us__home scroll-transition-fade '} ref={ref} >
-              <p className={"about__us__text scroll-transition-fade " +(useOnScreen(ref) ? 'nothing' : 'below-viewport')} ref={ref} >About Us</p>
+              <p className={"about__us__text scroll-transition-fade " +(useOnScreen(ref) ? 'nothing' : 'below-viewport')} ref={ref} >NOSOTROS</p>
               <p className={"about__believe__title scroll-transition-fade " +(useOnScreen(ref3) ? 'nothing' : 'below-viewport-3')} ref={ref3}>Lo que creemos.</p>
               <p className={'about__believe__content scroll-transition-fade ' +(useOnScreen(ref3) ? 'nothing' : 'below-viewport-2')} ref={ref3}>
                 Creemos en el Padre, Hijo, y El Espíritu Santo. Se predica de la Santa Biblia Reyna Valera Gomez. La salvación viene por El arrepentimiento de sus pecados y recibiendo a Jesucristo como su Señor y Salvador!

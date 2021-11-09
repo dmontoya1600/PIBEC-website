@@ -28,8 +28,8 @@ function Footer({ isLoaded }){
   return (
     <div id='footer' className='homepage__footer'>
         <form onSubmit={(e) => submitContactForm(e)} className={"footer__contact__us scroll-transition-fade " +(useOnScreen(ref) ? 'nothing' : 'below-viewport')}  ref={ref}>
-            <p className='footer__message__1' >Do you have a question or a prayer request?</p>
-            <p className='footer__message__2' >Contact Us.</p>
+            <p className='footer__message__1' >¿Tiene una pregunta o una petición de oración?</p>
+            <p className='footer__message__2' >Contactanos.</p>
             <input value={emailValue} onChange={(e) => setEmail(e.target.value)} className='contact__email' required type='email' placeholder='Email'/>
             <textarea value={messageValue} onChange={(e) => setMessage(e.target.value)} className='contact__message' required placeholder='Message'/>
             <input type='submit' className='contact__submit'/>

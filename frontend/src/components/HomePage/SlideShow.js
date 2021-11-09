@@ -114,9 +114,9 @@ function SlideShow({location}) {
         <i className='fas fa-arrow-right slide__arrow right__arrow' onClick={() => handleRightClick()}/>
         <div className='slide__phone'>Primera Iglesia Bautista El Calvario</div>
         <div className='slide__message'>
-          {/* <img src={logo}/>
-           */}
-           Primera Iglesia Bautista El Calvario
+          <img src={logo}/>
+
+           {/* Primera Iglesia Bautista El Calvario */}
         </div>
         <a onClick={() => removehash(history)}href='#contact__link' className='slide__contact'>CONTACT US</a>
         <div className='slide__array'>{bubbleArr()}</div>

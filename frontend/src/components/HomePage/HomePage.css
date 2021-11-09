@@ -145,8 +145,8 @@ html {
     z-index: 3;
     color: white;
     margin: 0 auto;
-    height: fit-content;
-    width: fit-content;
+    height: 100%;
+    /* width: fit-content; */
     font-size: 45px;
     font-weight: bold;
 
@@ -156,6 +156,7 @@ html {
     grid-area: contact;
     text-decoration: initial;
     text-align: center;
+    align-self: center;
     z-index: 3;
     color: white;
     background-color: cornflowerblue;
