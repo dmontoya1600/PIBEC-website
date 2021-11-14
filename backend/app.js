@@ -71,7 +71,7 @@ if (!isProduction) {
   app.use(
     csurf({
       cookie: {
-        secure: isProduction,
+        // secure: isProduction,
         sameSite: isProduction && "Lax",
         httpOnly: true,
       },
