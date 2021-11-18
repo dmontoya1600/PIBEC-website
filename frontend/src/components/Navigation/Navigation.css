@@ -65,6 +65,7 @@
     'h h h'
     'a a a'
     'c c c'
+    's s s'
     '. . .'
     'l l l';
 }
@@ -151,7 +152,7 @@ div > .selected{
 .more__contact{
     color: white;
     padding-bottom: 5px;
-
+    border-bottom: white solid 1px;
     font-size: 27px;
     padding-top: 20px;
     grid-area: c;
@@ -163,5 +164,22 @@ div > .selected{
 }
 .more__contact:hover{
     color: rgb(0, 90, 125);
-    /* border-bottom: rgb(197, 197, 197) solid 1px; */
+    border-bottom: rgb(197, 197, 197) solid 1px;
+}
+
+.more__staff{
+    color: white;
+    padding-bottom: 5px;
+
+    font-size: 27px;
+    padding-top: 20px;
+    grid-area: s;
+    border-bottom: white solid 1px;
+    text-decoration: none;
+    /* text-align: center; */
+    padding-left: 35px;
+    height: fit-content;
+}
+.more__staff:hover{
+    color: rgb(0, 90, 125);
 }

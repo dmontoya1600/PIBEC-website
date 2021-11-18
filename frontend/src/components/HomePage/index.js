@@ -57,7 +57,7 @@ function HomePage() {
             </div>
             <div className='information__tabs location' href='#google__map'>
               <i className="fas fa-map-marker-alt information__icon location" />
-              <a className='information__text location' onClick={(e) => removehash(history) }href='#google__map'>2000 North Minnasota Ave Brownsville, TX 78521</a>
+              <a className='information__text location' onClick={(e) => removehash(history) }href='#google__map'>2000 North Minnesota Ave Brownsville, TX 78521</a>
             </div>
 
           </div>
