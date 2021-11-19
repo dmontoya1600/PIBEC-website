@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import './staff.css';
+import './Staff.css';
 
 function StaffPage({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);

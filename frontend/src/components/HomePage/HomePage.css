@@ -118,6 +118,8 @@ html {
     z-index: 1;
     width: 100%;
     min-height: 500px;
+    bottom: 0px;
+
 }
 
 .slide__phone{
@@ -181,6 +183,7 @@ html {
     animation-iteration-count: 1;
     animation-timing-function: ease-out;
     animation-duration: 1s;
+
 }
 
 .slide__arrow{

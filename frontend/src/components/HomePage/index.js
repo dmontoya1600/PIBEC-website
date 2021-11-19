@@ -70,7 +70,7 @@ function HomePage() {
                 Creemos en el Padre, Hijo, y El Espíritu Santo. Se predica de la Santa Biblia Reyna Valera Gomez. La salvación viene por El arrepentimiento de sus pecados y recibiendo a Jesucristo como su Señor y Salvador!
               </p>
               <p className={'about__location scroll-transition-fade ' +(useOnScreen(ref2) ? 'nothing' : 'below-viewport-2')} ref={ref2}>Donde estamos.</p>
-              <div className={"scroll-transition-fade " +(useOnScreen(ref2) ? 'nothing' : 'below-viewport-3')} id='google__map' ref={ref2} dangerouslySetInnerHTML={{ __html: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3587.886786570354!2d-97.43290918497543!3d25.938941883556623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x866fbe0425939131%3A0xb4534ad760db747a!2s2000%20N%20Minnesota%20Ave%2C%20Brownsville%2C%20TX%2078521!5e0!3m2!1sen!2sus!4v1635742369010!5m2!1sen!2sus" width="560" height="350" style="border:0;" allowfullscreen="" loading="lazy" />`}} />
+              <div className={"scroll-transition-fade " +(useOnScreen(ref2) ? 'nothing' : 'below-viewport-3')} id='google__map' ref={ref2} dangerouslySetInnerHTML={{ __html: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3587.886786570354!2d-97.43290918497543!3d25.938941883556623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x866fbe0425939131%3A0xb4534ad760db747a!2s2000%20N%20Minnesota%20Ave%2C%20Brownsville%2C%20TX%2078521!5e0!3m2!1sen!2sus!4v1635742369010!5m2!1sen!2sus" width="760" height="350" style="border:0;" allowfullscreen="" loading="lazy" />`}} />
             </div>
             <div className='contact__link' id='contact__link' />
             <Footer setResponse={setResponse} />
