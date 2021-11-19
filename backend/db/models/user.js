@@ -84,3 +84,4 @@ User.signup = async function ({ username, email, password }) {
   };
   return User;
 };
+

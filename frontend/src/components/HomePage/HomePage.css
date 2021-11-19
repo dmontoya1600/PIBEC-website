@@ -132,10 +132,12 @@ html {
     height: fit-content;
     padding-top: 20px;
     padding-bottom: 20px;
-    font-size: 25px;
     font-weight: 100;
 }
-
+.slide__phone > p{
+    font-size: 35px;
+    margin: 0px;
+}
 .slide__message{
     grid-area: message;
     text-shadow: black 1px 0 10px;
@@ -244,7 +246,9 @@ html {
 @media (max-width: 1000px){
     .about__us__home{
         overflow: hidden;
-        width: 550px;
+        /* width: 550px; */
+        width: 90%;
+
         font-family: 'Bebas Neue', serif;
         display: grid;
         grid-template-areas:
@@ -295,7 +299,7 @@ html {
 @media (min-width: 1000px){
     .about__us__home{
         overflow: hidden;
-        width: 1000px;
+        width: 90%;
         font-family: 'Bebas Neue', serif;
         display: grid;
         grid-template-areas:
