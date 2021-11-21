@@ -16,21 +16,21 @@ function StaffPage({ isLoaded }){
                 <div className='staff__title'><p>Samuel Gomez, Pastor</p></div>
                 <div className='staff__info'></div>
             </div>
-            <div className='staff__row'>
+            {/* <div className='staff__row'>
                 <div className='staff__image'></div>
                 <div className='staff__title'><p>Adriana Gomez, Pastor's wife</p></div>
                 <div className='staff__info'></div>
-            </div>
+            </div> */}
             <div className='staff__row'>
                 <div className='staff__image'></div>
                 <div className='staff__title'><p>Damian Montoya, Youth Pastor</p></div>
                 <div className='staff__info'></div>
             </div>
-            <div className='staff__row'>
+            {/* <div className='staff__row'>
                 <div className='staff__image'></div>
                 <div className='staff__title'><p></p></div>
                 <div className='staff__info'></div>
-            </div>
+            </div> */}
         </div>
     </>
   );
