@@ -112,7 +112,7 @@ function SlideShow({location}) {
         {authSlide === 'authslide' ? <div className='slideshow__overlay' onClick={() => handleSlideClick()}/> : <div className='slideshow__overlay' /> }
         <i className='fas fa-arrow-left slide__arrow left__arrow' onClick={() => handleLeftClick()}/>
         <i className='fas fa-arrow-right slide__arrow right__arrow' onClick={() => handleRightClick()}/>
-        <div className='slide__phone'> <p>¡Conferencia de misiones esta noche a las 6 pm no se lo pierda!</p> </div>
+        <div className='slide__phone'> <p>¡Bienvenidos a Primera Iglesia Bautista El Calvario!</p> </div>
         <div className='slide__message'>
           <img src={logo}/>
 
