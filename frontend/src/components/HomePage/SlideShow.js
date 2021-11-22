@@ -93,9 +93,9 @@ function SlideShow({location}) {
 
       return imageArr?.map((ele, idx) => {
         if(idx === currentIdx){
-         return <i className='fas fa-circle' onClick={() => setCurrentIdx(idx)} />
+         return <i key={ele.id} className='fas fa-circle' onClick={() => setCurrentIdx(idx)} />
         } else {
-         return <i className='far fa-circle' onClick={() => setCurrentIdx(idx)} />
+         return <i key={ele.id} className='far fa-circle' onClick={() => setCurrentIdx(idx)} />
         }
       })
     }

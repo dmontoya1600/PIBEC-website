@@ -164,7 +164,6 @@ html {
     color: white;
     margin: 0 auto;
     height: 100%;
-    /* width: fit-content; */
     font-size: 45px;
     font-weight: bold;
 
@@ -242,6 +241,7 @@ html {
 }
 .embedded__controls{
     background-color: cornflowerblue;
+    z-index: 5;
 }
 .fa-code{
     color: white;
@@ -253,9 +253,54 @@ html {
 
 .embedded__component{
     width: fit-content;
+    height: 455px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
 }
 
+.fa-upload:hover{
+    color: rgba(43, 255, 0, 0.939);
+}
+.fa-times-circle:hover{
+    color: red;
+}
 
+.embedded__update__page{
+    display: flex;
+    z-index: 4;
+    background-color: rgba(100, 148, 237, 0.645);
+    width: 30%;
+    justify-content: center;
+    padding: 10px;
+    border-top-right-radius: 7px;
+    border-top-left-radius: 7px;
+}
+.slide__up{
+    animation: 1s ease-out 0s 1 slideInFromBottom;
+}
+@keyframes slideInFromBottom {
+    0% {
+        transform: translateY(100%);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+.slide__down{
+    animation: 1s ease-out 0s 1 slideOutFromTop;
+}
+@keyframes slideOutFromTop {
+    100% {
+        transform: translateY(100%);
+    }
+    0%{
+        transform: translateY(0);
+    }
+}
+.embedded__post{
+    z-index: 5;
+}
 
 
 /* ********* ********* MEDIA STYLING ********* ********* */

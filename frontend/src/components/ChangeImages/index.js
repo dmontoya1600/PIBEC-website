@@ -1,14 +1,11 @@
-import React, { useState } from 'react';
-import * as sessionActions from '../../store/session';
-import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import React from 'react';
+import { useDispatch } from 'react-redux';
 import './ChangeImages.css'
 import { removeImage, uploadImage } from '../../store/images';
 
 
 function ChangeImages({imageArr, setChangeSlide, location}) {
   const dispatch = useDispatch();
-  const sessionUser = useSelector(state => state.session.user);
 
   async function uploadFile(e){
     await dispatch(uploadImage(e.target.files[0], location))

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useHistory } from "react-router-dom";
 import * as sessionActions from '../../store/session';
@@ -31,8 +31,8 @@ function closePage(){
     <div className='more__component'>
       <div className={`more__page ${contentLoaded}`} onAnimationEnd={() => slideOutFunction()}>
           <NavLink exact to='/' className='more__home' activeClassName='selected'>Home</NavLink>
-          <a onClick={() => removehash(history)} href='#about_us' className='more__about' activeClassName='selected'>About Us</a>
-          <a onClick={() => removehash(history)} href='#contact__link' className='more__contact' activeClassName='selected'>Contact Us</a>
+          <a onClick={() => removehash(history)} href='#about_us' className='more__about' >About Us</a>
+          <a onClick={() => removehash(history)} href='#contact__link' className='more__contact' >Contact Us</a>
           {sessionUser && <div className='more__logout' onClick={logout}>Log Out</div>}
           <i className='fas fa-times' onClick={() => closePage()}/>
           {/* <NavLink exact to='/staff' className='more__staff' activeClassName='selected'>Staff</NavLink> */}

@@ -1,18 +1,18 @@
 import React, {useState, useRef, useEffect} from 'react';
-import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import './HomePage.css'
 import {useOnScreen} from '../../Help_functions'
 import {getEmbeddedCode, updateEmbeddedCode} from '../../store/embedded'
 
 
-function EmbeddedPost({ isLoaded, location }){
+function EmbeddedPost({ location }){
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   const embeddedArray = useSelector(state => state.embedded[location])
   const [openCode, setOpenCode] = useState(false)
-  const [embeddedCode, setEmbeddedCode] = useState(null)
+  const [embeddedCode, setEmbeddedCode] = useState('')
   const [mostRecentPost, setMostRecentPost] = useState(null)
+  const [contentLoaded, setContentLoaded] = useState('slide__up')
   const ref = useRef()
   useEffect(() => {
     dispatch(getEmbeddedCode(location))
@@ -39,19 +39,37 @@ function EmbeddedPost({ isLoaded, location }){
     }
     if(embeddedCode?.includes('<iframe')){
       console.log('YES IT INCLUDES IT')
-      return dispatch(updateEmbeddedCode(embeddedCode, location))
+      // setEmbeddedCode(null)
+
+      dispatch(updateEmbeddedCode(embeddedCode, location))
     } else{
       console.log('YOU MUST PASS IN AN IFRAME');
 
     }
+    setEmbeddedCode('')
+    setContentLoaded('slide__down')
   }
 
-
+function slideDownFunction(){
+  if(contentLoaded === 'slide__down') {
+    setOpenCode(false)
+    setContentLoaded('slide__up')
+  }
+}
+function clickedOnIcon(){
+  if(openCode){
+    setContentLoaded('slide__down')
+  }
+  else if (!openCode){
+    setOpenCode(true)
+  }
+}
 
   function embedded__update(){
     return (
-      <form className='embedded__update__page'>
-        <input type='text' className='embedded__input' placeholder='Paste Embedded Code...' onChange={(e) => setEmbeddedCode(e.target.value)}/>
+      <form className={`embedded__update__page ${contentLoaded}`} onAnimationEnd={() => slideDownFunction()}>
+        <i className="fas fa-times-circle" onClick={() => setContentLoaded('slide__down')}/>
+        <input type='text' value={embeddedCode} className='embedded__input' placeholder='Paste Embedded Code...' onChange={(e) => setEmbeddedCode(e.target.value)}/>
         <i onClick={()=> handleUpdate()} className="fas fa-upload"/>
       </form>
     )
@@ -64,7 +82,7 @@ function EmbeddedPost({ isLoaded, location }){
       :null}
       {sessionUser?
         <div className='embedded__controls'>
-            <i className="fas fa-code" onClick={() => setOpenCode(!openCode)} />
+            <i className="fas fa-code" onClick={() => clickedOnIcon()} />
         </div> :null}
         <div className='embedded__post' dangerouslySetInnerHTML={{ __html: mostRecentPost?.code}}></div>
     </div>

@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router';
-
+import{ useEffect, useState } from 'react';
 
 export function useOnScreen(ref) {
 
