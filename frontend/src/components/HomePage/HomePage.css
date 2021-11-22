@@ -130,7 +130,8 @@ html {
         z-index: 1;
         width: 100%;
         min-height: 500px;
-        bottom: 100px;
+        /* bottom: 100px; */
+        top: -50px;
         /* overflow: hidden; */
     }
 }
