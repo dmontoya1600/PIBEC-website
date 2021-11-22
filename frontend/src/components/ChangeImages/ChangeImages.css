@@ -3,6 +3,7 @@
     background-color: rgba(137, 136, 136, 0.759);
     display: grid;
     /* grid-template:  100px / repeat(100, 150px) 45px; */
+
     column-gap: 10px;
     overflow: auto;
     position: fixed;
@@ -37,10 +38,15 @@
 
 .image__close{
     color: rgb(99, 153, 255);
-    position: absolute;
+    position: fixed;
     margin-left: 5px;
     margin-top: 5px;
     font-size: 25px;
+    /* left: 0;
+    top: 0; */
+    left: 32%;
+    top: 40%;
+    transform: translate(-50%, -50%);
 
 }
 .image__close:hover{
