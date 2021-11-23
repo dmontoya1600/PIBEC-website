@@ -409,7 +409,8 @@ html {
         font-size: 27px;
         text-align: initial;
         grid-area: bcontent;
-        padding-left: 60px;
+        text-align: center;
+        /* padding-left: 60px; */
     }
     .about__location{
         grid-area: ltitle;
