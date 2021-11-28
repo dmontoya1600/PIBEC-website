@@ -10,6 +10,22 @@ const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 
 
+function changeWandH(eCode){
+  let copyOfCode = eCode.split('')
+  let idxOfWidth = eCode.indexOf(' width')
+  let idxOfHeight = eCode.indexOf(' height')
+  let changeWHere = idxOfWidth + 8
+  let changeHHere = idxOfHeight + 9
+  // console.log('entering', idxOfWidth, copyOfCode.splice(changeWHere, 3, '8', '0', '0'))
+
+  // CHANGING THE WIDTH AND HEIGHT OF IFRAME WHEN GET IS TRIGGERED
+  copyOfCode.splice(changeWHere, 3, '8', '0', '0')
+  copyOfCode.splice(changeHHere, 3 , '3', '9', '2')
+
+  return copyOfCode.join('')
+}
+
+
 router.get(
     '/:location',
     asyncHandler(async (req, res) => {
@@ -19,20 +35,7 @@ router.get(
         where: {location: location}
       })
 
-      function changeWandH(eCode){
-        let copyOfCode = eCode.split('')
-        let idxOfWidth = eCode.indexOf(' width')
-        let idxOfHeight = eCode.indexOf(' height')
-        let changeWHere = idxOfWidth + 8
-        let changeHHere = idxOfHeight + 9
-        // console.log('entering', idxOfWidth, copyOfCode.splice(changeWHere, 3, '8', '0', '0'))
 
-        // CHANGING THE WIDTH AND HEIGHT OF IFRAME WHEN GET IS TRIGGERED
-        copyOfCode.splice(changeWHere, 3, '8', '0', '0')
-        copyOfCode.splice(changeHHere, 3 , '3', '9', '2')
-
-        return copyOfCode.join('')
-      }
 
       const array = []
       allEmbedded.forEach(embeddedObj => {
@@ -85,6 +88,7 @@ router.get(
 
       const array = []
       allEmbedded.forEach(embeddedObj => {
+        embeddedObj.dataValues.code = changeWandH(embeddedObj.dataValues.code)
         array.push(embeddedObj.dataValues)
       })
       // console.log(embeddedCreate)

@@ -56,6 +56,7 @@ function slideDownFunction(){
     setContentLoaded('slide__up')
   }
 }
+
 function clickedOnIcon(){
   if(openCode){
     setContentLoaded('slide__down')
@@ -65,15 +66,15 @@ function clickedOnIcon(){
   }
 }
 
-  function embedded__update(){
-    return (
-      <form className={`embedded__update__page ${contentLoaded}`} onAnimationEnd={() => slideDownFunction()}>
-        <i className="fas fa-times-circle" onClick={() => setContentLoaded('slide__down')}/>
-        <input type='text' value={embeddedCode} className='embedded__input' placeholder='Paste Embedded Code...' onChange={(e) => setEmbeddedCode(e.target.value)}/>
-        <i onClick={()=> handleUpdate()} className="fas fa-upload"/>
-      </form>
-    )
-  }
+function embedded__update(){
+  return (
+    <form className={`embedded__update__page ${contentLoaded}`} onAnimationEnd={() => slideDownFunction()}>
+      <i className="fas fa-times-circle" onClick={() => setContentLoaded('slide__down')}/>
+      <input type='text' value={embeddedCode} className='embedded__input' placeholder='Paste Embedded Code...' onChange={(e) => setEmbeddedCode(e.target.value)}/>
+      <i onClick={()=> handleUpdate()} className="fas fa-upload"/>
+    </form>
+  )
+}
 
   return (
     <div id='embedded__element' className={"embedded__component scroll-transition-fade " +(useOnScreen(ref) ? 'nothing' : 'below-viewport-3')} ref={ref}>

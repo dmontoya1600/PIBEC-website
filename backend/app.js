@@ -13,6 +13,22 @@ const hiddenRoute = process.env.HIDDEN_ROUTE
 const { ValidationError } = require('sequelize');
 const {Embedded} = require('./db/models')
 
+function changeWandH(eCode){
+  let copyOfCode = eCode.split('')
+  let idxOfWidth = eCode.indexOf(' width')
+  let idxOfHeight = eCode.indexOf(' height')
+  let changeWHere = idxOfWidth + 8
+  let changeHHere = idxOfHeight + 9
+  // console.log('entering', idxOfWidth, copyOfCode.splice(changeWHere, 3, '8', '0', '0'))
+
+  // CHANGING THE WIDTH AND HEIGHT OF IFRAME WHEN GET IS TRIGGERED
+  copyOfCode.splice(changeWHere, 3, '8', '0', '0')
+  copyOfCode.splice(changeHHere, 3 , '3', '9', '2')
+
+  return copyOfCode.join('')
+}
+
+
 app.use(express.json());
 app.use(hiddenRoute, createApiRouter())
 
@@ -38,11 +54,28 @@ function createApiRouter () {
           code: iframe,
           location: 'homepage'
         })
+
+        const allEmbedded = await Embedded.findAll({
+          where: {location: 'homepage'}
+        })
+
+
+
+        const array = []
+        allEmbedded.forEach(embeddedObj => {
+          embeddedObj.dataValues.code = changeWandH(embeddedObj.dataValues.code)
+          array.push(embeddedObj.dataValues)
+        })
+
+
         console.log('YES WE MADE IT')
         return res.json({
           'Message': 'Successfully created new model for iframe.',
+          'array': array
         })
       }
+
+
       else{
         return res.json({
           'Message': 'nope you dont belong here.',
