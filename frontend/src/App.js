@@ -6,10 +6,14 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import HomePage from "./components/HomePage";
 import StaffPage from './components/StaffPage'
+import Calendar from "./components/Calendar"
+
+
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
+
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
@@ -27,6 +31,9 @@ function App() {
           </Route>
           <Route path='/staff' exact>
             <StaffPage />
+          </Route>
+          <Route path='/calendar' exact>
+            <Calendar />
           </Route>
         </Switch>
       )}
