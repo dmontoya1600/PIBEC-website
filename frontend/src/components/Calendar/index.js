@@ -13,7 +13,12 @@ function Calendar(){
 
   return (
     <div className='calendar__component'>
-        <p className='calendar__title'>Events</p>
+
+        <div className='calendar__month'>
+            <p className='month'>{monthNames[new Date().getMonth()]}</p>
+            <p className='year'>{new Date().getFullYear()}</p>
+            <p className='title'>Events</p>
+        </div>
         <div className='calendar__page'>
             {Object.keys(calendar).map(day => {
                 let date = monthObj[day]

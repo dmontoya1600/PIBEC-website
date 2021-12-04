@@ -7,18 +7,7 @@
     align-items: center;
 }
 
-.calendar__title{
-    color: white;
-    font-family: 'Bebas Neue', serif;
-    font-size: 50px;
-    margin-top: 25px;
-    margin-bottom: 25px;
-    padding-left: 15px;
-    padding-right: 15px;
 
-    border-bottom: 2px solid red;
-
-}
 
 .calendar__page{
     display: grid;
@@ -50,4 +39,38 @@
     border-radius: 50%;
     justify-content: center;
     align-items: center;
+}
+
+.calendar__month{
+    display: flex;
+    justify-content: start;
+    flex-direction: row;
+    width: 1190px;
+    font-size: 30px;
+    color: white;
+    align-items: end;
+    margin-top: 35px;
+}
+
+.calendar__month > .month{
+    font-weight: bold;
+    margin-right: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 0px;
+
+
+}
+.calendar__month > .year{
+    padding-bottom: 10px;
+    margin-bottom: 0px;
+}
+.calendar__month > .title{
+    position: absolute;
+    color: white;
+    font-family: 'Bebas Neue', serif;
+    font-size: 50px;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%);
+    border-bottom: 2px solid red;
 }
