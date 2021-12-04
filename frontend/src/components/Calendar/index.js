@@ -47,12 +47,16 @@ function Calendar(){
 
   return (
     <div className='calendar__component'>
-        {Object.keys(month).map(day => {
-            let date = monthObj[day]
-            return(
-                <div key='day' className='calendar__day'>{date.dayOfMonth}</div>
-            )
-        })}
+        <div className='calendar__page'>
+            {Object.keys(month).map(day => {
+                let date = monthObj[day]
+                return(
+                    <div key={day} className={`calendar__day ${date.dayOfMonth === new Date().getDate() ? 'today__date' : ''}`}>
+                        <p>{date.dayOfMonth}</p>
+                    </div>
+                )
+            })}
+        </div>
     </div>
   );
 }
