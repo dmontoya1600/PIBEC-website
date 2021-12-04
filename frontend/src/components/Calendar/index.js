@@ -2,6 +2,9 @@ import React, {useState, useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import './Calendar.css'
 import {monthObj} from './calendarFunction'
+const monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
 
 function Calendar(){
   const dispatch = useDispatch();
@@ -10,6 +13,7 @@ function Calendar(){
 
   return (
     <div className='calendar__component'>
+        <p className='calendar__title'>Events</p>
         <div className='calendar__page'>
             {Object.keys(calendar).map(day => {
                 let date = monthObj[day]
