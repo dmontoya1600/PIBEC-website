@@ -66,6 +66,7 @@
     'a a a'
     'c c c'
     's s s'
+    'cal cal cal'
     '. . .'
     'l l l';
 }
@@ -181,5 +182,22 @@ div > .selected{
     height: fit-content;
 }
 .more__staff:hover{
+    color: rgb(0, 90, 125);
+}
+
+.more__calendar{
+    color: white;
+    padding-bottom: 5px;
+
+    font-size: 27px;
+    padding-top: 20px;
+    grid-area: cal;
+    border-bottom: white solid 1px;
+    text-decoration: none;
+    /* text-align: center; */
+    padding-left: 35px;
+    height: fit-content;
+}
+.more__calendar:hover{
     color: rgb(0, 90, 125);
 }

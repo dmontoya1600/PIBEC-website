@@ -35,7 +35,9 @@ function closePage(){
           <a onClick={() => removehash(history)} href='#contact__link' className='more__contact' >Contact Us</a>
           {sessionUser && <div className='more__logout' onClick={logout}>Log Out</div>}
           <i className='fas fa-times' onClick={() => closePage()}/>
-          {/* <NavLink exact to='/staff' className='more__staff' activeClassName='selected'>Staff</NavLink> */}
+          <NavLink exact to='/staff' className='more__staff' activeClassName='selected'>Staff</NavLink>
+          <NavLink exact to='/calendar' className='more__calendar' activeClassName='selected'>Calendar</NavLink>
+
       </div>
           <div className='more__background' onClick={() => closePage()} ></div>
     </div>
