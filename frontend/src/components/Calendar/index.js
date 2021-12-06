@@ -16,6 +16,9 @@ function Calendar(){
       return (
         <form className='calendar__event__form'>
             <div className='calendar__event__point'></div>
+            <input type='text' placeholder='New Event'/>
+            <div className='form__divider'/>
+            <input type='time' />
         </form>
       )
   }
