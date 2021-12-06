@@ -12,15 +12,15 @@
 .calendar__page{
     display: grid;
     height: fit-content;
-    width: fit-content;
+    width: 1130px;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     background-color: rgb(37, 37, 37);
 }
 
 
 .calendar__day{
-    height: 110px;
-    width: 170px;
+    height: 100px;
+    /* width: 160px; */
     border: 1px solid #f4f4f425;
     color: white;
     font-size: 16px;
@@ -45,7 +45,7 @@
     display: flex;
     justify-content: start;
     flex-direction: row;
-    width: 1190px;
+    width: 1130px;
     font-size: 30px;
     color: white;
     align-items: end;
@@ -73,4 +73,16 @@
     margin-right: -50%;
     transform: translate(-50%);
     border-bottom: 2px solid red;
+}
+
+.calendar__week{
+    width: 1130px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    color: white;
+    height: 40px;
+}
+.calendar__week > p{
+    /* border: 1px solid #f4f4f425; */
+    width: auto;
 }

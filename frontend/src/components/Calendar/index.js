@@ -19,6 +19,16 @@ function Calendar(){
             <p className='year'>{new Date().getFullYear()}</p>
             <p className='title'>Events</p>
         </div>
+        <div className='calendar__week'>
+            <p>Sun</p>
+            <p>Mon</p>
+            <p>Tue</p>
+            <p>Wed</p>
+            <p>Thu</p>
+            <p>Fri</p>
+            <p>Sat</p>
+
+        </div>
         <div className='calendar__page'>
             {Object.keys(calendar).map(day => {
                 let date = monthObj[day]
