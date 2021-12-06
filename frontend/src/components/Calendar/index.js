@@ -33,7 +33,7 @@ function Calendar(){
             {Object.keys(calendar).map(day => {
                 let date = monthObj[day]
                 return(
-                    <div key={day} className={`calendar__day ${date.dayOfMonth === new Date().getDate() ? 'today__date' : ''}`}>
+                    <div key={day} className={`calendar__day ${date.dayOfMonth === new Date().getDate() ? 'today__date' : '' } ${date.weekDay === 0 || date.weekDay===6 ? 'weekend__day' : ''} `}>
                         <p>{date.dayOfMonth}</p>
                     </div>
                 )
