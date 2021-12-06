@@ -105,11 +105,11 @@
     right: -120%;
     top: -15%;
     align-self: center;
-    padding-top: 20px;
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
+    align-items: start;
     flex-direction: column;
+    z-index: 3;
 }
 
 .calendar__event__point{
@@ -123,13 +123,18 @@
     border-bottom: 25px solid transparent;
 
 }
+.calendar__event__form > p{
+    margin-bottom: 0px;
+    margin-top:5px;
+    margin-left: 10px;
 
+}
 .calendar__event__form > input{
     background-color: rgb(66, 65, 65);
     z-index: 3;
     font-size: 20px;
     color: white;
-    width: 50%;
+    width: 90%;
     border: 0;
     margin-left: 10px;
 }
@@ -147,4 +152,14 @@ input::placeholder {
     height: 1px;
     background-color: white;
     z-index: 3;
+}
+
+.form__shadow{
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 1;
+    height: 100vh;
+    width: 100vw;
+    top:0px;
+    left: 0px;
 }
