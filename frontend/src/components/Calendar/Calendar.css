@@ -25,6 +25,7 @@
     color: white;
     font-size: 15px;
     padding-left: 2px;
+    position: relative;
     /* overflow: scroll; */
     /* display: flex; */
     /* justify-content: end; */
@@ -91,5 +92,28 @@
 .weekend__day{
     background-color: rgb(29, 29, 29);
     /* background-color: rgb(44, 43, 43); */
+}
 
+.calendar__event__form{
+    background-color: rgb(66, 65, 65);
+    border-radius: 9px;
+    border: 1px solid rgb(169, 169, 169);
+    z-index: 2;
+    height: 170px;
+    width: 200px;
+    position: absolute;
+    right: -120%;
+    top: -35%;
+    align-self: center;
+}
+
+.calendar__event__point{
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 35%;
+    left: -20px;
+    border-top: 25px solid transparent;
+    border-right: 50px solid rgb(66, 65, 65);
+    border-bottom: 25px solid transparent;
 }

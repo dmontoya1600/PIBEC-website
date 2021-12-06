@@ -9,7 +9,16 @@ const monthNames = ["January", "February", "March", "April", "May", "June",
 function Calendar(){
   const dispatch = useDispatch();
   const [calendar, setCalendar] = useState(monthObj)
-  console.log('month', monthObj)
+  const [eventActive, setEventActive] = useState([false, null])
+
+  function addEventForm(date){
+
+      return (
+        <form className='calendar__event__form'>
+            <div className='calendar__event__point'></div>
+        </form>
+      )
+  }
 
   return (
     <div className='calendar__component'>
@@ -33,12 +42,16 @@ function Calendar(){
             {Object.keys(calendar).map(day => {
                 let date = monthObj[day]
                 return(
-                    <div key={day} className={`calendar__day ${date.dayOfMonth === new Date().getDate() ? 'today__date' : '' } ${date.weekDay === 0 || date.weekDay===6 ? 'weekend__day' : ''} `}>
+                    <div key={day} onClick={() => setEventActive([true, date])} className={`calendar__day ${date.dayOfMonth === new Date().getDate() ? 'today__date' : '' } ${date.weekDay === 0 || date.weekDay===6 ? 'weekend__day' : ''} `}>
                         <p>{date.dayOfMonth}</p>
+                        {eventActive[0] && eventActive[1] === date ? addEventForm(eventActive[1]) : null}
+
                     </div>
                 )
             })}
         </div>
+
+
     </div>
   );
 }
