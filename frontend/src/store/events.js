@@ -1,48 +1,49 @@
 import { csrfFetch } from './csrf';
 
 
-export const UPDATE_ARRAY ='embedd/upateArray';
+export const UPDATE_MONTH ='embedd/upateArray';
 
-const setEmbeddedCode = (location, array) => {
+const setEvents = (location, array) => {
   return {
-    type: UPDATE_ARRAY,
+    type: UPDATE_MONTH,
     array,
     location,
   };
 };
 
 
-export const getEvents = (location, position = 0) => async dispatch => {
+export const getEvents = () => async dispatch => {
 
   const response = await csrfFetch(`api/events/`)
   const data = await response.json()
-  dispatch(setEmbeddedCode(location, data.array))
+//   dispatch(setEvents(location, data.array))
 
 }
 
-export const updateEmbeddedCode = (embedded, location, position = 0) => async dispatch => {
-  const response = await csrfFetch(`api/embedded/`, {
+export const updateEmbeddedCode = (date, eventName, eventTime) => async dispatch => {
+  const response = await csrfFetch(`api/events/`, {
       method: 'POST',
       body: JSON.stringify({
-        embedded,
-        location
+        date,
+        eventName,
+        eventTime,
       })
   });
 
   const data = await response.json()
-  dispatch(setEmbeddedCode(location, data.array))
+//   dispatch(setEvents(location, data.array))
 }
 
 
 
 
 
-const embeddedReducer = (state = {}, action) => {
+const eventsReducer = (state = {}, action) => {
   switch (action.type) {
-    case UPDATE_ARRAY:
+    case UPDATE_MONTH:
       return {
         ...state,
-        [action.location]: action.array,
+        monthObj: action.monthObj,
 
       }
     default:
@@ -50,4 +51,4 @@ const embeddedReducer = (state = {}, action) => {
   }
 };
 
-export default embeddedReducer;
+export default eventsReducer;
