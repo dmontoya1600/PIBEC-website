@@ -15,7 +15,7 @@ function Calendar(){
   console.log(eventActive)
 
   function handleFormSubmit(e){
-      
+
   }
 
   function handleBackgroundClick(e){
@@ -61,10 +61,9 @@ function Calendar(){
             {Object.keys(calendar).map(day => {
                 let date = monthObj[day]
                 return(
-                    <div key={day} onClick={() => setEventActive([true, date])} className={`calendar__day ${date.dayOfMonth === new Date().getDate() ? 'today__date' : '' } ${date.weekDay === 0 || date.weekDay===6 ? 'weekend__day' : ''} `}>
+                    <div key={day} onClick={() => setEventActive([true, date])} className={`calendar__day ${date.monthDay.toDateString() === new Date().toDateString() ? 'today__date' : '' } ${date.weekDay === 0 || date.weekDay===6 ? 'weekend__day' : ''} `}>
                         <p>{date.dayOfMonth}</p>
                         {eventActive[0] && eventActive[1] === date ? addEventForm(eventActive[1]) : null}
-
                     </div>
                 )
             })}
