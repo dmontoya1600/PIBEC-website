@@ -1,5 +1,6 @@
 import { csrfFetch } from './csrf';
 
+
 export const UPDATE_ARRAY ='embedd/upateArray';
 
 const setEmbeddedCode = (location, array) => {
@@ -11,10 +12,12 @@ const setEmbeddedCode = (location, array) => {
 };
 
 
-export const getEmbeddedCode = (location, position = 0) => async dispatch => {
-  const response = await csrfFetch(`api/embedded/${location}`)
+export const getEvents = (location, position = 0) => async dispatch => {
+
+  const response = await csrfFetch(`api/events/`)
   const data = await response.json()
   dispatch(setEmbeddedCode(location, data.array))
+
 }
 
 export const updateEmbeddedCode = (embedded, location, position = 0) => async dispatch => {

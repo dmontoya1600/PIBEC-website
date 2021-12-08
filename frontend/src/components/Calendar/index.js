@@ -10,8 +10,13 @@ function Calendar(){
   const dispatch = useDispatch();
   const [calendar, setCalendar] = useState(monthObj)
   const [eventActive, setEventActive] = useState([false, null])
+  const [eventName, setEventName] = useState(null)
+  const [eventTime, setEventTime] = useState(null)
   console.log(eventActive)
 
+  function handleFormSubmit(e){
+      
+  }
 
   function handleBackgroundClick(e){
       e.stopPropagation()
@@ -25,9 +30,9 @@ function Calendar(){
             <form className='calendar__event__form'>
                 <div className='calendar__event__point'></div>
                 <p>{`${date.monthDay.toDateString()}`}</p>
-                <input type='text' placeholder='New Event'/>
+                <input onChange={(e) => setEventName(e.target.value)} type='text' placeholder='New Event'/>
                 <div className='form__divider'/>
-                <input type='time' />
+                <input type='time' onChange={(e) => setEventTime(e.target.value)}/>
             </form>
             <div onClick={(e) => handleBackgroundClick(e)} className='form__shadow'></div>
         </>
