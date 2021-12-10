@@ -16,6 +16,7 @@ export const getEvents = () => async dispatch => {
 
   const response = await csrfFetch(`api/events/`)
   const data = await response.json()
+  return data
 //   dispatch(setEvents(location, data.array))
 
 }

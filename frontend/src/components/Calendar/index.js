@@ -2,9 +2,12 @@ import React, {useState, useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import './Calendar.css'
 import {monthObj} from './calendarFunction'
+import {getEvents} from '../../store/events'
+
 const monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
 ];
+
 
 function Calendar(){
   const dispatch = useDispatch();
@@ -12,7 +15,14 @@ function Calendar(){
   const [eventActive, setEventActive] = useState([false, null])
   const [eventName, setEventName] = useState(null)
   const [eventTime, setEventTime] = useState(null)
-  console.log(eventActive)
+
+  useEffect(() => {
+      const asyncFunc = async() => {
+          let testEvent = await dispatch(getEvents())
+          console.log(testEvent)
+      }
+      return asyncFunc()
+  },[dispatch])
 
   function handleFormSubmit(e){
 

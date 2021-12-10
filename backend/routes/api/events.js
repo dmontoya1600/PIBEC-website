@@ -9,7 +9,7 @@ const { User, Array, Image } = require('../../db/models');
     asyncHandler(async (req, res) => {
 
       return res.json({
-
+            'events': 'hit'
       });
     }),
   );

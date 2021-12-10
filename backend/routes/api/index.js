@@ -6,6 +6,7 @@ const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
 const imagesRouter = require('./images.js')
 const embeddedRouter = require('./embedded.js')
+const evenetsRouter = require('./events.js')
 
 router.use('/session', sessionRouter);
 
@@ -14,6 +15,10 @@ router.use('/users', usersRouter);
 router.use('/images', imagesRouter)
 
 router.use('/embedded', embeddedRouter)
+
+router.use('/events', evenetsRouter)
+
+
 
 
 
