@@ -11,18 +11,23 @@ const monthNames = ["January", "February", "March", "April", "May", "June",
 
 function Calendar(){
   const dispatch = useDispatch();
+  const events = useSelector(state => state.events)
   const [calendar, setCalendar] = useState(monthObj)
   const [eventActive, setEventActive] = useState([false, null])
   const [eventName, setEventName] = useState(null)
   const [eventTime, setEventTime] = useState(null)
 
-  useEffect(() => {
-      const asyncFunc = async() => {
-          let testEvent = await dispatch(getEvents())
+console.log('this is calendar ', calendar)
 
-      }
-      return asyncFunc()
+  useEffect(() => {
+        dispatch(getEvents())
   },[dispatch])
+
+  useEffect(() => {
+    if(events.monthObj){
+        setCalendar(events.monthObj)
+    }
+  },[events])
 
   function handleFormSubmit(e, date){
       e.preventDefault()
@@ -73,10 +78,21 @@ function Calendar(){
         </div>
         <div className='calendar__page'>
             {Object.keys(calendar).map(day => {
+                if(calendar[day].event){
+                    console.log('we made it boys', calendar[day])
+                    console.log('difference', monthObj[day])
+                }
+
                 let date = monthObj[day]
+                let dynamicDate = calendar[day]
+
                 return(
                     <div key={day} onClick={() => setEventActive([true, date])} className={`calendar__day ${date.monthDay.toDateString() === new Date().toDateString() ? 'today__date' : '' } ${date.weekDay === 0 || date.weekDay===6 ? 'weekend__day' : ''} `}>
                         <p>{date.dayOfMonth}</p>
+                        {dynamicDate.event ? <div className='calendar__event'>
+                            {dynamicDate.event ? <p className='event__title'>{dynamicDate.event}</p> : null}
+                            {dynamicDate.event ? <p className='event__time'>{dynamicDate.time}</p> : null}
+                        </div> : null}
                         {eventActive[0] && eventActive[1] === date ? addEventForm(eventActive[1]) : null}
                     </div>
                 )
