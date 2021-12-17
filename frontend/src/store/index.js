@@ -10,7 +10,7 @@ const rootReducer = combineReducers({
   session: sessionReducer,
   images: imagesReducer,
   embedded: embeddedReducer,
-  events: embeddedReducer,
+  events: eventsReducer,
 });
 
 let enhancer;

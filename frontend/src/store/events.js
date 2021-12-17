@@ -1,13 +1,12 @@
 import { csrfFetch } from './csrf';
 
 
-export const UPDATE_MONTH ='embedd/upateArray';
+export const UPDATE_MONTH ='events/updateMonth';
 
-const setEvents = (location, array) => {
+const setEvents = (monthObj) => {
   return {
     type: UPDATE_MONTH,
-    array,
-    location,
+    monthObj
   };
 };
 
@@ -16,8 +15,8 @@ export const getEvents = () => async dispatch => {
 
   const response = await csrfFetch(`api/events/`)
   const data = await response.json()
-  return data
-//   dispatch(setEvents(location, data.array))
+  console.log('it worked!',data.monthObj);
+  dispatch(setEvents(data.monthObj))
 
 }
 
