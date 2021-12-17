@@ -196,6 +196,7 @@ input::placeholder {
     margin-top: 0px;
     margin-bottom: 0px;
     border-radius: 7px;
+    font-size: 13px;
 }
 
 .calendar__event > p{

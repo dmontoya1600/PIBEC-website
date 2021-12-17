@@ -36,6 +36,11 @@ function Calendar(){
       if(hourNum > 12){
         hourNum -= 12
         fixedTime = hourNum.toString() + eventTime.slice(2) + ' PM'
+      }else if(hourNum === 12){
+        fixedTime = hourNum.toString() + eventTime.slice(2) + ' PM'
+      }else if(hourNum === 0){
+        hourNum += 12
+        fixedTime = hourNum.toString() + eventTime.slice(2) + ' AM'
       } else {
         fixedTime = hourNum.toString() + eventTime.slice(2) + ' AM'
       }
