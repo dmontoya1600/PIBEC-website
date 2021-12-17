@@ -15,7 +15,6 @@ export const getEvents = () => async dispatch => {
 
   const response = await csrfFetch(`api/events/`)
   const data = await response.json()
-  console.log('it worked!',data.monthObj);
   dispatch(setEvents(data.monthObj))
 
 }
@@ -31,7 +30,7 @@ export const createEvent = (dayOfYear, eventTitle, eventTime) => async dispatch 
   });
 
   const data = await response.json()
-//   dispatch(setEvents(location, data.array))
+  dispatch(setEvents(data.monthObj))
 }
 
 

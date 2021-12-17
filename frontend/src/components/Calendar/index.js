@@ -17,7 +17,6 @@ function Calendar(){
   const [eventName, setEventName] = useState(null)
   const [eventTime, setEventTime] = useState(null)
 
-console.log('this is calendar ', calendar)
 
   useEffect(() => {
         dispatch(getEvents())
@@ -32,7 +31,16 @@ console.log('this is calendar ', calendar)
   function handleFormSubmit(e, date){
       e.preventDefault()
       console.log('form values', date.dayOfYear, eventName, eventTime)
-      dispatch(createEvent(date.dayOfYear, eventName, eventTime))
+      let hourNum = parseInt(eventTime.slice(0,2))
+      let fixedTime;
+      if(hourNum > 12){
+        hourNum -= 12
+        fixedTime = hourNum.toString() + eventTime.slice(2) + ' PM'
+      } else {
+        fixedTime = hourNum.toString() + eventTime.slice(2) + ' AM'
+      }
+
+      dispatch(createEvent(date.dayOfYear, eventName, fixedTime))
 
   }
 
@@ -42,7 +50,6 @@ console.log('this is calendar ', calendar)
   }
 
   function addEventForm(date){
-    console.log('this is date', date)
       return (
         <>
             <form onSubmit={(e) => handleFormSubmit(e, date)} className='calendar__event__form'>
@@ -78,10 +85,6 @@ console.log('this is calendar ', calendar)
         </div>
         <div className='calendar__page'>
             {Object.keys(calendar).map(day => {
-                if(calendar[day].event){
-                    console.log('we made it boys', calendar[day])
-                    console.log('difference', monthObj[day])
-                }
 
                 let date = monthObj[day]
                 let dynamicDate = calendar[day]

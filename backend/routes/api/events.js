@@ -16,6 +16,8 @@ const {monthObj} = require('../../calendarFunction')
 
         monthObj[parseInt(event.dataValues.dayOfYear)].event = event.dataValues.title
         monthObj[parseInt(event.dataValues.dayOfYear)].time = event.dataValues.timeOfEvent
+        monthObj[parseInt(event.dataValues.dayOfYear)].id = event.dataValues.id
+
       })
 
       return res.json({
@@ -29,13 +31,25 @@ const {monthObj} = require('../../calendarFunction')
     '/',
     asyncHandler(async (req, res) => {
       const {dayOfYear, eventTitle, eventTime} = req.body
+
       const eventCreate = await Event.create({
         title: eventTitle,
         dayOfYear,
         timeOfEvent: eventTime
       })
-      return res.json({
+      const allEvents = await Event.findAll()
 
+
+      allEvents.forEach(event => {
+
+        monthObj[parseInt(event.dataValues.dayOfYear)].event = event.dataValues.title
+        monthObj[parseInt(event.dataValues.dayOfYear)].time = event.dataValues.timeOfEvent
+        monthObj[parseInt(event.dataValues.dayOfYear)].id = event.dataValues.id
+
+      })
+
+      return res.json({
+        'monthObj': monthObj
       });
     }),
   );
