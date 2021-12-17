@@ -8,7 +8,16 @@ const {monthObj} = require('../../calendarFunction')
   router.get(
     '/',
     asyncHandler(async (req, res) => {
-      console.log(monthObj)
+
+      const allEvents = await Event.findAll()
+
+
+      allEvents.forEach(event => {
+
+        monthObj[parseInt(event.dataValues.dayOfYear)].event = event.dataValues.title
+        monthObj[parseInt(event.dataValues.dayOfYear)].time = event.dataValues.timeOfEvent
+      })
+
       return res.json({
             'monthObj': monthObj
       });
@@ -20,7 +29,11 @@ const {monthObj} = require('../../calendarFunction')
     '/',
     asyncHandler(async (req, res) => {
       const {dayOfYear, eventTitle, eventTime} = req.body
-
+      const eventCreate = await Event.create({
+        title: eventTitle,
+        dayOfYear,
+        timeOfEvent: eventTime
+      })
       return res.json({
 
       });
