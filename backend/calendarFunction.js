@@ -27,12 +27,12 @@ for(let i = 1; i <= daysInMonth; i++){
           let lastMonthDay = new Date(yearOfMonth, lastMonth, daysInLastMonth - subDay)
           let dayOfMonth = new Date(yearOfMonth, lastMonth, daysInLastMonth - subDay).getDate()
           let dayOfYear = daysIntoYear(lastMonthDay)
-          monthObj[dayOfYear] = {dayOfMonth, monthDay: lastMonthDay, weekDay: j, month: lastMonth +1, yearOfMonth}
+          monthObj[dayOfYear] = {dayOfYear, dayOfMonth, monthDay: lastMonthDay, weekDay: j, month: lastMonth +1, yearOfMonth}
           console.log('INSIDE MONTH', monthObj)
       }
   }
   let dayOfYear = daysIntoYear(thisDate)
-  monthObj[dayOfYear] = {dayOfMonth: i,monthDay: thisDate, weekDay: dayOfWeek, month: month +1, year}
+  monthObj[dayOfYear] = {dayOfYear, dayOfMonth: i,monthDay: thisDate, weekDay: dayOfWeek, month: month +1, year}
   if(i === daysInMonth && dayOfWeek < 6){
     let nextDays = 1;
     let nextMonth;
@@ -52,7 +52,7 @@ for(let i = 1; i <= daysInMonth; i++){
             nextDayOfYear+=365
         }
 
-        monthObj[nextDayOfYear] = {dayOfMonth: nextDays, monthDay: nextMonthDay, weekDay: j, month: nextMonth +1, yearOfMonth}
+        monthObj[nextDayOfYear] = {dayOfYear, dayOfMonth: nextDays, monthDay: nextMonthDay, weekDay: j, month: nextMonth +1, yearOfMonth}
         nextDays++
 
     }

@@ -163,3 +163,18 @@ input::placeholder {
     top:0px;
     left: 0px;
 }
+
+.form__submit{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding:5px;
+    background-color: white;
+    color: black;
+    border-radius: 7px;
+    cursor: pointer;
+}
+.form__submit:hover{
+    background-color: rgb(37, 37, 37);
+    color: white;
+}

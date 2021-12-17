@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router();
 const asyncHandler = require('express-async-handler');
-const { User, Array, Image } = require('../../db/models');
+const { User, Array, Image, Event } = require('../../db/models');
 const {monthObj} = require('../../calendarFunction')
 
 
@@ -19,7 +19,8 @@ const {monthObj} = require('../../calendarFunction')
   router.post(
     '/',
     asyncHandler(async (req, res) => {
-      console.log(req.body)
+      const {dayOfYear, eventTitle, eventTime} = req.body
+
       return res.json({
 
       });

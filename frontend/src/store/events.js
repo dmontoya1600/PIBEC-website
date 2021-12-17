@@ -20,12 +20,12 @@ export const getEvents = () => async dispatch => {
 
 }
 
-export const updateEmbeddedCode = (date, eventName, eventTime) => async dispatch => {
+export const createEvent = (dayOfYear, eventTitle, eventTime) => async dispatch => {
   const response = await csrfFetch(`api/events/`, {
       method: 'POST',
       body: JSON.stringify({
-        date,
-        eventName,
+        dayOfYear,
+        eventTitle,
         eventTime,
       })
   });

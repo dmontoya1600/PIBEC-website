@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import './Calendar.css'
 import {monthObj} from './calendarFunction'
-import {getEvents} from '../../store/events'
+import {getEvents, createEvent} from '../../store/events'
 
 const monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
@@ -19,12 +19,15 @@ function Calendar(){
   useEffect(() => {
       const asyncFunc = async() => {
           let testEvent = await dispatch(getEvents())
-          console.log(testEvent)
+
       }
       return asyncFunc()
   },[dispatch])
 
-  function handleFormSubmit(e){
+  function handleFormSubmit(e, date){
+      e.preventDefault()
+      console.log('form values', date.dayOfYear, eventName, eventTime)
+      dispatch(createEvent(date.dayOfYear, eventName, eventTime))
 
   }
 
@@ -34,15 +37,16 @@ function Calendar(){
   }
 
   function addEventForm(date){
-
+    console.log('this is date', date)
       return (
         <>
-            <form className='calendar__event__form'>
+            <form onSubmit={(e) => handleFormSubmit(e, date)} className='calendar__event__form'>
                 <div className='calendar__event__point'></div>
                 <p>{`${date.monthDay.toDateString()}`}</p>
-                <input onChange={(e) => setEventName(e.target.value)} type='text' placeholder='New Event'/>
+                <input required onChange={(e) => setEventName(e.target.value)} type='text' placeholder='New Event'/>
                 <div className='form__divider'/>
-                <input type='time' onChange={(e) => setEventTime(e.target.value)}/>
+                <input required type='time' onChange={(e) => setEventTime(e.target.value)}/>
+                <button className='form__submit'>Create</button>
             </form>
             <div onClick={(e) => handleBackgroundClick(e)} className='form__shadow'></div>
         </>
