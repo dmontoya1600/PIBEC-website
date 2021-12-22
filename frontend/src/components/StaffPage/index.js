@@ -24,7 +24,7 @@ function StaffPage({ isLoaded }){
             <div className='staff__row'>
                 <div className='staff__image'>Image Goes Here</div>
                 <div className='staff__title'><p>Damian Montoya, Youth Pastor</p></div>
-                <div className='staff__info'>As the Youth Pastor, Damian organizes activities, creates messages, and preaching to the youth group. He likes to play piano and works as a software developer.</div>
+                <div className='staff__info'>As the Youth Pastor, Damian organizes activities, creates messages, and preaches to the youth group. He likes to play piano and works as a software developer.</div>
             </div>
             {/* <div className='staff__row'>
                 <div className='staff__image'></div>
