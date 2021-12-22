@@ -16,6 +16,8 @@ function Calendar(){
   const [eventActive, setEventActive] = useState([false, null])
   const [eventName, setEventName] = useState(null)
   const [eventTime, setEventTime] = useState(null)
+  const sessionUser = useSelector(state => state.session.user);
+
 
 
   useEffect(() => {
@@ -106,7 +108,7 @@ function Calendar(){
                 let dynamicDate = calendar[day]
 
                 return(
-                    <div key={day} onClick={() => setEventActive([true, date])} className={`calendar__day ${date.monthDay.toDateString() === new Date().toDateString() ? 'today__date' : '' } ${date.weekDay === 0 || date.weekDay===6 ? 'weekend__day' : ''} `}>
+                    <div key={day} onClick={() => setEventActive([sessionUser && true, date])} className={`calendar__day ${date.monthDay.toDateString() === new Date().toDateString() ? 'today__date' : '' } ${date.weekDay === 0 || date.weekDay===6 ? 'weekend__day' : ''} `}>
                         <p>{date.dayOfMonth}</p>
                         {dynamicDate.events ? <div className='calendar__events'>{allEvents(dynamicDate.events)}</div> : null}
                         {eventActive[0] && eventActive[1] === date ? addEventForm(eventActive[1]) : null}
