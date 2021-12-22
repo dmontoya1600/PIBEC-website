@@ -29,6 +29,7 @@ function Calendar(){
   },[events])
 
   function handleFormSubmit(e, date){
+      let dateString = date.monthDay.toString()
       e.preventDefault()
       console.log('form values', date.dayOfYear, eventName, eventTime)
       let hourNum = parseInt(eventTime.slice(0,2))
@@ -44,14 +45,24 @@ function Calendar(){
       } else {
         fixedTime = hourNum.toString() + eventTime.slice(2) + ' AM'
       }
-
-      dispatch(createEvent(date.dayOfYear, eventName, fixedTime))
+      console.log('this is datestring', dateString)
+      dispatch(createEvent(date.dayOfYear, eventName, fixedTime, dateString, eventTime))
 
   }
 
   function handleBackgroundClick(e){
       e.stopPropagation()
     setEventActive([false, null])
+  }
+
+  function allEvents(events){
+    return Object.keys(events).map( ms =>(
+        <div className='calendar__event'>
+          <p className='event__title'>{events[ms].title}</p>
+          <p className='event__time'>{events[ms].time}</p>
+        </div>
+)
+    )
   }
 
   function addEventForm(date){
@@ -97,10 +108,7 @@ function Calendar(){
                 return(
                     <div key={day} onClick={() => setEventActive([true, date])} className={`calendar__day ${date.monthDay.toDateString() === new Date().toDateString() ? 'today__date' : '' } ${date.weekDay === 0 || date.weekDay===6 ? 'weekend__day' : ''} `}>
                         <p>{date.dayOfMonth}</p>
-                        {dynamicDate.event ? <div className='calendar__event'>
-                            {dynamicDate.event ? <p className='event__title'>{dynamicDate.event}</p> : null}
-                            {dynamicDate.event ? <p className='event__time'>{dynamicDate.time}</p> : null}
-                        </div> : null}
+                        {dynamicDate.events ? allEvents(dynamicDate.events) : null}
                         {eventActive[0] && eventActive[1] === date ? addEventForm(eventActive[1]) : null}
                     </div>
                 )

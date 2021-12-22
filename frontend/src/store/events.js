@@ -19,13 +19,15 @@ export const getEvents = () => async dispatch => {
 
 }
 
-export const createEvent = (dayOfYear, eventTitle, eventTime) => async dispatch => {
+export const createEvent = (dayOfYear, eventTitle, eventTime, dateString, militaryTime) => async dispatch => {
   const response = await csrfFetch(`api/events/`, {
       method: 'POST',
       body: JSON.stringify({
         dayOfYear,
         eventTitle,
         eventTime,
+        dateString,
+        militaryTime
       })
   });
 
