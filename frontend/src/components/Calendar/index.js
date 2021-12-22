@@ -108,7 +108,7 @@ function Calendar(){
                 return(
                     <div key={day} onClick={() => setEventActive([true, date])} className={`calendar__day ${date.monthDay.toDateString() === new Date().toDateString() ? 'today__date' : '' } ${date.weekDay === 0 || date.weekDay===6 ? 'weekend__day' : ''} `}>
                         <p>{date.dayOfMonth}</p>
-                        {dynamicDate.events ? allEvents(dynamicDate.events) : null}
+                        {dynamicDate.events ? <div className='calendar__events'>{allEvents(dynamicDate.events)}</div> : null}
                         {eventActive[0] && eventActive[1] === date ? addEventForm(eventActive[1]) : null}
                     </div>
                 )
