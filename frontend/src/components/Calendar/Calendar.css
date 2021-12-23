@@ -20,14 +20,11 @@
 
 .calendar__day{
     height: 100px;
-    /* width: 160px; */
     border: 1px solid #f4f4f425;
     color: white;
     font-size: 15px;
     padding-left: 2px;
     position: relative;
-    /* display: flex; */
-    /* justify-content: end; */
 }
 .calendar__day > p{
     right: 5px;
@@ -85,12 +82,10 @@
     background-color: rgb(80, 28, 28);
 }
 .calendar__week > p{
-    /* border: 1px solid #f4f4f425; */
     width: auto;
 }
 .weekend__day{
     background-color: rgb(29, 29, 29);
-    /* background-color: rgb(44, 43, 43); */
 }
 
 .calendar__event__form{
@@ -137,7 +132,6 @@
     margin-left: 10px;
 }
 input:focus{
-    /* border: 0; */
     outline:none!important;
 }
 input::placeholder {
@@ -179,7 +173,6 @@ input::placeholder {
 
 
 .calendar__event{
-    /* background-color: white; */
     position: relative;
     color: white;
     display: flex;
@@ -194,7 +187,7 @@ input::placeholder {
     margin-top: 0px;
     margin-bottom: 5px;
     border-radius: 7px;
-    font-size: 13px;
+    font-size: 12px;
 }
 
 .calendar__event > p{
@@ -210,5 +203,40 @@ input::placeholder {
  .calendar__events{
     height: 50px;
     position: relative;
-    overflow: scroll;
+    overflow-y: auto;
  }
+
+ .event__update__form{
+    z-index: 4;
+    position: fixed;
+    height: 230px;
+    width: 350px;
+    display: flex;
+    /* justify-content: space-evenly; */
+    flex-direction: column;
+    background-color: rgb(66, 65, 65);
+    border-radius: 7px;
+    border: 1px solid white;
+ }
+.event__update__form > input{
+    height: 20px;
+    background-color: rgb(66, 65, 65);
+    z-index: 3;
+    font-size: 20px;
+    color: white;
+    width: 90%;
+    border: 0;
+    margin-left: 15px;
+}
+.event__update__form > p{
+    font-size: 35px;
+    color: white;
+    font-family: 'Bebas Neue', serif;
+    align-self: center;
+}
+
+.event__update__form > label{
+    font-size: 26px;
+    color: white;
+    margin-left: 15px;
+}

@@ -16,6 +16,7 @@ function Calendar(){
   const [eventActive, setEventActive] = useState([false, null])
   const [eventName, setEventName] = useState(null)
   const [eventTime, setEventTime] = useState(null)
+  const [updateEvent, setUpdateEvent] = useState(null)
   const sessionUser = useSelector(state => state.session.user);
 
 
@@ -47,9 +48,27 @@ function Calendar(){
       } else {
         fixedTime = hourNum.toString() + eventTime.slice(2) + ' AM'
       }
-      console.log('this is datestring', dateString)
-      dispatch(createEvent(date.dayOfYear, eventName, fixedTime, dateString, eventTime))
 
+      dispatch(createEvent(date.dayOfYear, eventName, fixedTime, dateString, eventTime))
+      setEventActive([false, null])
+
+  }
+
+  function handleEventClick([e, event]){
+    e.stopPropagation()
+    console.log('this is event', event)
+    return (
+      <form className='event__update__form' onSubmit>
+        
+        <p>Update or Delete Event</p>
+        <label>Update Title:</label>
+        <input required placeholder={event.title} />
+        <label>Update Time:</label>
+        <input required placeholder={event.time} type='time'/>
+        <submit>Update</submit>
+        <div>Delete</div>
+      </form>
+    )
   }
 
   function handleBackgroundClick(e){
@@ -59,7 +78,7 @@ function Calendar(){
 
   function allEvents(events){
     return Object.keys(events).map( ms =>(
-        <div className='calendar__event'>
+        <div className='calendar__event' onClick={(e) => setUpdateEvent([e, events[ms]])}>
           <p className='event__title'>{events[ms].title}</p>
           <p className='event__time'>{events[ms].time}</p>
         </div>
@@ -86,6 +105,7 @@ function Calendar(){
   return (
     <div className='calendar__component'>
 
+        {updateEvent ? handleEventClick(updateEvent) : null}
         <div className='calendar__month'>
             <p className='month'>{monthNames[new Date().getMonth()]}</p>
             <p className='year'>{new Date().getFullYear()}</p>
