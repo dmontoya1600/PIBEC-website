@@ -59,14 +59,15 @@ function Calendar(){
     console.log('this is event', event)
     return (
       <form className='event__update__form' onSubmit>
-        
+        <i class="fas fa-times-circle close__event" onClick={() => setUpdateEvent(null)}></i>
         <p>Update or Delete Event</p>
         <label>Update Title:</label>
         <input required placeholder={event.title} />
+        <div className='form__divider'></div>
         <label>Update Time:</label>
         <input required placeholder={event.time} type='time'/>
-        <submit>Update</submit>
-        <div>Delete</div>
+        <submit className='event__update__submit' >Update</submit>
+        <div className='event__delete'>Delete</div>
       </form>
     )
   }

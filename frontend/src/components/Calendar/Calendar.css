@@ -209,7 +209,7 @@ input::placeholder {
  .event__update__form{
     z-index: 4;
     position: fixed;
-    height: 230px;
+    height: fit-content;
     width: 350px;
     display: flex;
     /* justify-content: space-evenly; */
@@ -239,4 +239,38 @@ input::placeholder {
     font-size: 26px;
     color: white;
     margin-left: 15px;
+}
+
+.close__event{
+    position: absolute;
+    height: fit-content;
+    width: fit-content;
+    font-size: 23px;
+    align-self: end;
+    color: white;
+}
+
+.event__update__submit{
+    cursor: pointer;
+    margin-top: 5px;
+    color: white;
+    position: absolute;
+    align-self: end;
+    justify-self: end;
+    bottom: 0px;
+    background-color: rgb(42, 42, 42);
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 5px;
+}
+.event__delete{
+    color: white;
+    cursor: pointer;
+    bottom: 0px;
+    background-color: rgb(42, 42, 42);
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 5px;
+    width: fit-content;
+    margin-top: 15px;
 }
