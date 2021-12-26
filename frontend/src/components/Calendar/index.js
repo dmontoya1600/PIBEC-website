@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import './Calendar.css'
 import {monthObj} from './calendarFunction'
-import {getEvents, createEvent} from '../../store/events'
+import {getEvents, createEvent, deleteEvent} from '../../store/events'
 
 const monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
@@ -53,8 +53,8 @@ function Calendar(){
       setEventActive([false, null])
 
   }
-  function deleteFunction(e, event){
-
+  function deleteFunction(id){
+    dispatch(deleteEvent(id))
   }
 
   function handleEventClick([e, event]){
@@ -70,7 +70,7 @@ function Calendar(){
         <label>Update Time:</label>
         <input required placeholder={event.time} type='time'/>
         <submit className='event__update__submit' >Update</submit>
-        <div onClick={(e) => deleteFunction(event)} className='event__delete'>Delete</div>
+        <div onClick={(e) => deleteFunction(event.id)} className='event__delete'>Delete</div>
       </form>
     )
   }

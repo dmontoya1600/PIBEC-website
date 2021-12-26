@@ -43,12 +43,14 @@ export const createEvent = (dayOfYear, eventTitle, eventTime, dateString, milita
   dispatch(setEvents(data.monthObj))
 }
 
-export const deleteEvent = (event) => async dispatch => {
-  const response = await csrfFetch(`api/events/${event.id}`, {
+export const deleteEvent = (id) => async dispatch => {
+  const response = await csrfFetch(`api/events/${id}`, {
     method: 'DELETE'
   })
   const data = await response.json()
-  dispatch(removeEvent(data.dayOfYear, data.milliseconds))
+  // dispatch(removeEvent(data.dayOfYear, data.milliseconds))
+  dispatch(setEvents(data.monthObj))
+
 }
 
 

@@ -77,9 +77,29 @@ router.delete(
     asyncHandler(async (req, res) => {
       const id = req.params.id;
       const event = await Event.findByPk(id)
+      await event.destroy()
+      const allEvents = await Event.findAll()
+
+
+      allEvents.forEach(event => {
+
+        monthObj[event.dataValues.dayOfYear].events = {
+          ...monthObj[event.dataValues.dayOfYear].events,
+          [parseInt(event.dataValues.timeInMS)]: {
+            time: event.dataValues.timeOfEvent,
+            id: event.dataValues.id,
+            title: event.dataValues.title,
+            milliseconds: parseInt(event.dataValues.timeInMS),
+          }
+        }
+
+      })
+
+      delete monthObj[event.dataValues.dayOfYear].events[event.dataValues.timeInMS]
+
 
       return res.json({
-
+            'monthObj': monthObj
       });
 
     })
