@@ -53,6 +53,9 @@ function Calendar(){
       setEventActive([false, null])
 
   }
+  function deleteFunction(e, event){
+
+  }
 
   function handleEventClick([e, event]){
     e.stopPropagation()
@@ -67,7 +70,7 @@ function Calendar(){
         <label>Update Time:</label>
         <input required placeholder={event.time} type='time'/>
         <submit className='event__update__submit' >Update</submit>
-        <div className='event__delete'>Delete</div>
+        <div onClick={(e) => deleteFunction(event)} className='event__delete'>Delete</div>
       </form>
     )
   }
@@ -79,7 +82,10 @@ function Calendar(){
 
   function allEvents(events){
     return Object.keys(events).map( ms =>(
-        <div className='calendar__event' onClick={(e) => setUpdateEvent([e, events[ms]])}>
+        <div className='calendar__event' onClick={(e) => {
+          e.stopPropagation()
+          setUpdateEvent([e, events[ms]])}}>
+
           <p className='event__title'>{events[ms].title}</p>
           <p className='event__time'>{events[ms].time}</p>
         </div>

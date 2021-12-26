@@ -2,6 +2,7 @@ import { csrfFetch } from './csrf';
 
 
 export const UPDATE_MONTH ='events/updateMonth';
+export const REMOVE_MONTH = 'events/RemoveEvent'
 
 const setEvents = (monthObj) => {
   return {
@@ -9,6 +10,13 @@ const setEvents = (monthObj) => {
     monthObj
   };
 };
+const removeEvent = (dayOfYear, millisecond) => {
+  return {
+    type: REMOVE_MONTH,
+    dayOfYear,
+    millisecond
+  };
+}
 
 
 export const getEvents = () => async dispatch => {
@@ -35,6 +43,13 @@ export const createEvent = (dayOfYear, eventTitle, eventTime, dateString, milita
   dispatch(setEvents(data.monthObj))
 }
 
+export const deleteEvent = (event) => async dispatch => {
+  const response = await csrfFetch(`api/events/${event.id}`, {
+    method: 'DELETE'
+  })
+  const data = await response.json()
+  dispatch(removeEvent(data.dayOfYear, data.milliseconds))
+}
 
 
 
@@ -47,6 +62,9 @@ const eventsReducer = (state = {}, action) => {
         monthObj: action.monthObj,
 
       }
+    case REMOVE_MONTH:
+      delete state.monthObj[action.dayOfYear].events[action.millisecond]
+      return state
     default:
       return state;
   }

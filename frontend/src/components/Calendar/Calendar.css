@@ -189,6 +189,9 @@ input::placeholder {
     border-radius: 7px;
     font-size: 12px;
 }
+.calendar__event:hover{
+    background-color: rgba(178, 0, 0, 0.436);
+}
 
 .calendar__event > p{
     margin-top: 0px;
