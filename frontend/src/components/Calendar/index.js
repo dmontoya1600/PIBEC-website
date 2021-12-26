@@ -17,6 +17,8 @@ function Calendar(){
   const [eventName, setEventName] = useState(null)
   const [eventTime, setEventTime] = useState(null)
   const [updateEvent, setUpdateEvent] = useState(null)
+  const [updateTitle, setUpdateTitle] = useState(null)
+  const [updateTime, setUpdateTime] = useState('')
   const sessionUser = useSelector(state => state.session.user);
 
 
@@ -34,7 +36,6 @@ function Calendar(){
   function handleFormSubmit(e, date){
       let dateString = date.monthDay.toString()
       e.preventDefault()
-      console.log('form values', date.dayOfYear, eventName, eventTime)
       let hourNum = parseInt(eventTime.slice(0,2))
       let fixedTime;
       if(hourNum > 12){
@@ -55,21 +56,44 @@ function Calendar(){
   }
   function deleteFunction(id){
     dispatch(deleteEvent(id))
+    setUpdateEvent(null)
+
+  }
+  function updateFunction(e){
+    e.preventDefault()
+
+    let hourNum = parseInt(updateTime.slice(0,2))
+    let fixedTime;
+    if(hourNum > 12){
+      hourNum -= 12
+      fixedTime = hourNum.toString() + updateTime.slice(2) + ' PM'
+    }else if(hourNum === 12){
+      fixedTime = hourNum.toString() + updateTime.slice(2) + ' PM'
+    }else if(hourNum === 0){
+      hourNum += 12
+      fixedTime = hourNum.toString() + updateTime.slice(2) + ' AM'
+    } else {
+      fixedTime = hourNum.toString() + updateTime.slice(2) + ' AM'
+    }
+    console.log('EVENTS', updateTitle, fixedTime)
+    // dispatch(updateEvent(updateTitle, updateTime))
+    setUpdateEvent(null)
+
   }
 
   function handleEventClick([e, event]){
     e.stopPropagation()
     console.log('this is event', event)
     return (
-      <form className='event__update__form' onSubmit>
+      <form className='event__update__form' onSubmit={(e) => updateFunction(e)}>
         <i class="fas fa-times-circle close__event" onClick={() => setUpdateEvent(null)}></i>
         <p>Update or Delete Event</p>
         <label>Update Title:</label>
-        <input required placeholder={event.title} />
+        <input required placeholder={event.title} value={updateTitle} onChange={(e) => setUpdateTitle(e.target.value)}/>
         <div className='form__divider'></div>
         <label>Update Time:</label>
-        <input required placeholder={event.time} type='time'/>
-        <submit className='event__update__submit' >Update</submit>
+        <input required placeholder={event.time} onChange={(e) => setUpdateTime(e.target.value)} value={updateTime} type='time'/>
+        <button className='event__update__submit' >Update</button>
         <div onClick={(e) => deleteFunction(event.id)} className='event__delete'>Delete</div>
       </form>
     )
