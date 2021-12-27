@@ -53,7 +53,7 @@ export const deleteEvent = (id) => async dispatch => {
 
 }
 
-export const updateEvent = (updateTitle, eventTime, id, militaryTime) => async dispatch => {
+export const updateEventPost = (updateTitle, eventTime, id, militaryTime) => async dispatch => {
   const response = await csrfFetch(`api/events/${id}`, {
     method: 'PUT',
     body: JSON.stringify({

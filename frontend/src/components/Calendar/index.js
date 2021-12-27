@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import './Calendar.css'
 import {monthObj} from './calendarFunction'
-import {getEvents, createEvent, deleteEvent} from '../../store/events'
+import {getEvents, createEvent, deleteEvent, updateEventPost} from '../../store/events'
 
 const monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
@@ -76,7 +76,7 @@ function Calendar(){
       fixedTime = hourNum.toString() + updateTime.slice(2) + ' AM'
     }
     console.log('EVENTS', updateTitle, fixedTime)
-    dispatch(updateEvent(updateTitle, fixedTime, id, updateTime))
+    dispatch(updateEventPost(updateTitle, fixedTime, id, updateTime))
     setUpdateEvent(null)
 
   }

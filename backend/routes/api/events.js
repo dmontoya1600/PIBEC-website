@@ -105,4 +105,55 @@ router.delete(
     })
 )
 
+router.put(
+  '/:id',
+  asyncHandler(async (req, res) => {
+    const id = req.params.id;
+    const {updateTitle, eventTime, militaryTime} = req.body
+    const event = await Event.findByPk(id)
+    const dateString = monthObj[event.dayOfYear].monthDay.toString()
+    const oldDay = event.dayOfYear
+    const oldMS = event.timeInMS
+
+    let timeInMS = new Date(dateString).getTime() + (parseInt(militaryTime.slice(0, 2)) * 3600000) + (parseInt(militaryTime.slice(3)) * 60000)
+
+
+    event.title = updateTitle
+    event.timeInMS = timeInMS
+    event.date = new Date(timeInMS)
+    event.timeOfEvent = eventTime
+
+    await event.save()
+
+
+
+
+
+    const allEvents = await Event.findAll()
+
+    delete monthObj[oldDay].events[oldMS]
+    allEvents.forEach(event => {
+
+      monthObj[event.dataValues.dayOfYear].events = {
+        ...monthObj[event.dataValues.dayOfYear].events,
+        [parseInt(event.dataValues.timeInMS)]: {
+          time: event.dataValues.timeOfEvent,
+          id: event.dataValues.id,
+          title: event.dataValues.title,
+          milliseconds: parseInt(event.dataValues.timeInMS),
+        }
+      }
+
+    })
+
+
+
+    return res.json({
+      'monthObj': monthObj
+    });
+
+
+  })
+)
+
 module.exports = router;
