@@ -53,6 +53,18 @@ export const deleteEvent = (id) => async dispatch => {
 
 }
 
+export const updateEvent = (updateTitle, eventTime, id, militaryTime) => async dispatch => {
+  const response = await csrfFetch(`api/events/${id}`, {
+    method: 'PUT',
+    body: JSON.stringify({
+      updateTitle,
+      eventTime,
+      militaryTime
+    })
+  })
+  const data = await response.json()
+  dispatch(setEvents(data.monthObj))
+}
 
 
 

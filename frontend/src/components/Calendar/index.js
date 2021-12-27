@@ -59,7 +59,7 @@ function Calendar(){
     setUpdateEvent(null)
 
   }
-  function updateFunction(e){
+  function updateFunction(e, id){
     e.preventDefault()
 
     let hourNum = parseInt(updateTime.slice(0,2))
@@ -76,7 +76,7 @@ function Calendar(){
       fixedTime = hourNum.toString() + updateTime.slice(2) + ' AM'
     }
     console.log('EVENTS', updateTitle, fixedTime)
-    // dispatch(updateEvent(updateTitle, updateTime))
+    dispatch(updateEvent(updateTitle, fixedTime, id, updateTime))
     setUpdateEvent(null)
 
   }
@@ -85,7 +85,7 @@ function Calendar(){
     e.stopPropagation()
     console.log('this is event', event)
     return (
-      <form className='event__update__form' onSubmit={(e) => updateFunction(e)}>
+      <form className='event__update__form' onSubmit={(e) => updateFunction(e, event.id)}>
         <i class="fas fa-times-circle close__event" onClick={() => setUpdateEvent(null)}></i>
         <p>Update or Delete Event</p>
         <label>Update Title:</label>
