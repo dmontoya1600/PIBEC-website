@@ -9,7 +9,7 @@ let monthObj={}
 function daysIntoYear(date){
   return (Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()) - Date.UTC(date.getFullYear(), 0, 0)) / 24 / 60 / 60 / 1000;
 }
-
+// heroku bugs
 for(let i = 1; i <= daysInMonth; i++){
   let thisDate = new Date(year, month, i);
   let dayOfWeek = thisDate.getDay()
