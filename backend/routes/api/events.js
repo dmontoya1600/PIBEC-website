@@ -10,7 +10,8 @@ const {monthObj} = require('../../calendarFunction')
     asyncHandler(async (req, res) => {
 
       const allEvents = await Event.findAll()
-
+      let copyOfMonth = Object.assign({}, monthObj);
+      console.log('MONTH OBJ BEFORE BEING CHANGES BY ALLEVENTS --->', copyOfMonth)
 
       allEvents.forEach(event => {
 
