@@ -39,7 +39,7 @@ for(let i = 1; i <= daysInMonth; i++){
     let yearOfMonth = year
     let newYear = false
     if(month === 11){
-        nextMonth = 1
+        nextMonth = 0
         yearOfMonth = year + 1
         newYear = true
     } else{
