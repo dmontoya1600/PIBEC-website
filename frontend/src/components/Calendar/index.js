@@ -159,6 +159,7 @@ function Calendar(){
                 let dynamicDate = calendar[day]
                 console.log('this is date!', date)
                 if (!date){
+                  console.log(calendar)
                   return
                 };
                 return(
