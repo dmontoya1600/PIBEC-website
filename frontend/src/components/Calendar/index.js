@@ -158,6 +158,7 @@ function Calendar(){
                 let date = monthObj[day]
                 let dynamicDate = calendar[day]
                 console.log('this is date!', date)
+                if (!date) return;
                 return(
                     <div key={day} onClick={() => setEventActive([sessionUser && true, date])} className={`calendar__day ${date.monthDay.toDateString() === new Date().toDateString() ? 'today__date' : '' } ${date.weekDay === 0 || date.weekDay===6 ? 'weekend__day' : ''} `}>
                         <p>{date.dayOfMonth}</p>
