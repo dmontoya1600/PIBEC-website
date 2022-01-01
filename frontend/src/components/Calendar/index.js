@@ -29,7 +29,7 @@ function Calendar(){
 
   useEffect(() => {
     if(events.monthObj){
-      console.log('THIS IS EVENTS', events.monthObj)
+      // console.log('THIS IS EVENTS', events.monthObj)
         setCalendar(events.monthObj)
     }
   },[events])
@@ -76,7 +76,7 @@ function Calendar(){
     } else {
       fixedTime = hourNum.toString() + updateTime.slice(2) + ' AM'
     }
-    console.log('EVENTS', updateTitle, fixedTime)
+    // console.log('EVENTS', updateTitle, fixedTime)
     dispatch(updateEventPost(updateTitle, fixedTime, id, updateTime))
     setUpdateEvent(null)
 
@@ -106,7 +106,11 @@ function Calendar(){
   }
 
   function allEvents(events){
-    return Object.keys(events).map( ms =>(
+    let sortedEvents = Object.keys(events)
+    sortedEvents.sort(function(a, b) {
+      return a - b;
+    });
+    return sortedEvents.map( ms =>(
         <div className='calendar__event' onClick={(e) => {
           e.stopPropagation()
           setUpdateEvent([e, events[ms]])}}>
@@ -134,6 +138,11 @@ function Calendar(){
       )
   }
 
+  let monthArray = Object.keys(calendar)
+  monthArray.sort(function(a, b) {
+    return a - b;
+  });
+
   return (
     <div className='calendar__component'>
 
@@ -154,11 +163,11 @@ function Calendar(){
 
         </div>
         <div className='calendar__page'>
-            {Object.keys(calendar).map(day => {
+            {monthArray.map(day => {
 
                 let date = monthObj[day]
                 let dynamicDate = calendar[day]
-                console.log('this is date!', date)
+                // console.log('this is date!', date)
                 if (!date){
                   console.log(calendar)
                   return
