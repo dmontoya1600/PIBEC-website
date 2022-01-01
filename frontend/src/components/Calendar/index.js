@@ -29,6 +29,7 @@ function Calendar(){
 
   useEffect(() => {
     if(events.monthObj){
+      console.log('THIS IS EVENTS', events.monthObj)
         setCalendar(events.monthObj)
     }
   },[events])
