@@ -28,7 +28,7 @@ for(let i = 1; i <= daysInMonth; i++){
           let dayOfMonth = new Date(yearOfMonth, lastMonth, daysInLastMonth - subDay).getDate()
           let dayOfYear = daysIntoYear(lastMonthDay)
           monthObj[dayOfYear] = {dayOfYear, dayOfMonth, monthDay: lastMonthDay, weekDay: j, month: lastMonth +1, yearOfMonth}
-          console.log('INSIDE MONTH', monthObj)
+
       }
   }
   let dayOfYear = daysIntoYear(thisDate)
