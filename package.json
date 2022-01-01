@@ -2,7 +2,7 @@
     "name": "pibec-website",
     "version": "1.0.0",
     "engines":{
-      "node": "17.0.1",
+      "node": "16.0.0",
       "npm": "8.1.0"
     },
     "description": "",
