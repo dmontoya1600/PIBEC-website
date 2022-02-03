@@ -51,7 +51,7 @@ const {monthObj} = require('../../calendarFunction')
         timeInMS
       })
       const allEvents = await Event.findAll()
-
+      console.log('ALL EVENTS', allEvents)
 
       allEvents.forEach(event => {
 

@@ -8,7 +8,6 @@ let monthObj={}
 function daysIntoYear(date){
   return (Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()) - Date.UTC(date.getFullYear(), 0, 0)) / 24 / 60 / 60 / 1000;
 }
-console.log('THIS IS DAYS INMONTH', daysInMonth)
 for(let i = 1; i <= daysInMonth; i++){
   let thisDate = new Date(year, month, i);
   let dayOfWeek = thisDate.getDay()
@@ -27,7 +26,6 @@ for(let i = 1; i <= daysInMonth; i++){
           let lastMonthDay = new Date(yearOfMonth, lastMonth, daysInLastMonth - subDay)
           let dayOfMonth = new Date(yearOfMonth, lastMonth, daysInLastMonth - subDay).getDate()
           let dayOfYear = daysIntoYear(lastMonthDay)
-        //   console.log('DAYS IN LAST MONTH', subDay, lastMonth, daysInLastMonth, dayOfYear, dayOfMonth)
           if(year > yearOfMonth){
             let newDayOfYear = parseInt(-subDay)
             monthObj[newDayOfYear] = {dayOfYear:newDayOfYear, dayOfMonth, monthDay: lastMonthDay, weekDay: j-1, month: lastMonth +1, yearOfMonth}
