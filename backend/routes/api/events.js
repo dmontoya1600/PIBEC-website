@@ -11,10 +11,10 @@ const {monthObj} = require('../../calendarFunction')
 
       const allEvents = await Event.findAll()
       let copyOfMonth = Object.assign({}, monthObj);
-      console.log('MONTH OBJ BEFORE BEING CHANGES BY ALLEVENTS --->', copyOfMonth)
+      console.log('MONTH OBJ BEFORE BEING CHANGES BY ALLEVENTS --->', monthObj)
 
       allEvents.forEach(event => {
-
+        console.log('EVENTS', event)
         monthObj[event.dataValues.dayOfYear].events = {
           ...monthObj[event.dataValues.dayOfYear].events,
           [parseInt(event.dataValues.timeInMS)]: {
