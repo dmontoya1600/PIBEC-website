@@ -11,10 +11,13 @@ const {monthObj} = require('../../calendarFunction')
 
       const allEvents = await Event.findAll()
       let copyOfMonth = Object.assign({}, monthObj);
-      console.log('MONTH OBJ BEFORE BEING CHANGES BY ALLEVENTS --->', monthObj)
+      // console.log('MONTH OBJ BEFORE BEING CHANGES BY ALLEVENTS --->', monthObj)
 
       allEvents.forEach(event => {
         console.log('EVENTS', event)
+        if(monthObj[event.dataValues.dayOfYear] === undefined){
+          return
+        }
         monthObj[event.dataValues.dayOfYear].events = {
           ...monthObj[event.dataValues.dayOfYear].events,
           [parseInt(event.dataValues.timeInMS)]: {
@@ -51,10 +54,12 @@ const {monthObj} = require('../../calendarFunction')
         timeInMS
       })
       const allEvents = await Event.findAll()
-      console.log('ALL EVENTS', allEvents)
+      // console.log('ALL EVENTS', allEvents)
 
       allEvents.forEach(event => {
-
+        if(monthObj[event.dataValues.dayOfYear] === undefined){
+          return
+        }
         monthObj[event.dataValues.dayOfYear].events = {
           ...monthObj[event.dataValues.dayOfYear].events,
           [parseInt(event.dataValues.timeInMS)]: {
@@ -83,7 +88,9 @@ router.delete(
 
 
       allEvents.forEach(event => {
-
+        if(monthObj[event.dataValues.dayOfYear] === undefined){
+          return
+        }
         monthObj[event.dataValues.dayOfYear].events = {
           ...monthObj[event.dataValues.dayOfYear].events,
           [parseInt(event.dataValues.timeInMS)]: {
@@ -134,7 +141,9 @@ router.put(
 
     delete monthObj[oldDay].events[oldMS]
     allEvents.forEach(event => {
-
+      if(monthObj[event.dataValues.dayOfYear] === undefined){
+        return
+      }
       monthObj[event.dataValues.dayOfYear].events = {
         ...monthObj[event.dataValues.dayOfYear].events,
         [parseInt(event.dataValues.timeInMS)]: {
