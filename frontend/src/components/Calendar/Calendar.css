@@ -277,3 +277,10 @@ input::placeholder {
     width: fit-content;
     margin-top: 15px;
 }
+
+.event__delete:hover{
+    background-color: rgb(22, 22, 22);
+}
+.event__update__submit:hover{
+    background-color: rgb(22, 22, 22);
+}
